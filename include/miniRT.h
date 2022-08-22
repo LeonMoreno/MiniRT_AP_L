@@ -7,6 +7,7 @@
 
 // Libs
 #include "essential.h"
+#include "elements.h"
 
 typedef	struct	s_img
 {
@@ -17,7 +18,17 @@ typedef	struct	s_img
 	int		endian;
 }	t_img;
 
-typedef struct s_mrt
+typedef	struct	s_elem
+{
+	t_al		al;
+	t_camera	ca;
+	t_ligth		li;
+	t_sphere	sp;
+	t_plane		pl;
+	t_cyli		cy;
+}	t_elem;
+
+typedef struct s_mini
 {
 	void	*mlx;
 	void	*win;
@@ -25,11 +36,20 @@ typedef struct s_mrt
 	double	aspe_ratio;
 	int		h_win;
 	int		w_win;
-	t_camera	camera;
-}	t_mrt;
+	t_elem	elem;
+}	t_mini;
+
+void	mlx_start(t_mini *m);
+void	start_render(t_mini *m);
+
+// Start scene && parsing
+void	start_scene(int argc, char **argv, t_mini *m);
+void	ft_msg_err(char *s);
+void	start_resolution(t_mini *m);
+void	start_camera(t_mini *m);
 
 
-void	mlx_start(t_mrt *m);
-void	start_render(t_mrt *m);
+//Utils
+void	ft_free_arr2(char **s);
 
 #endif

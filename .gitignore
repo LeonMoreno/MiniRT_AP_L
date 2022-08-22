@@ -32,4 +32,4 @@ libft/libft.a
 
 # Object files
 *.o
-minishell
+miniRT

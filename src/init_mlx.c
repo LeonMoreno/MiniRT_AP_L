@@ -5,7 +5,7 @@ int	ft_close(void)
 	exit(0);
 }
 
-void	new_window(t_mrt *m, char *msg)
+void	new_window(t_mini *m, char *msg)
 {
 	int	h;
 	int	w;
@@ -16,7 +16,7 @@ void	new_window(t_mrt *m, char *msg)
 	mlx_hook(m->win, 17, 0, ft_close, 0);
 }
 
-void	mlx_start(t_mrt *m)
+void	mlx_start(t_mini *m)
 {
 	m->mlx = mlx_init();
 	new_window(m, "Hola miniRT");

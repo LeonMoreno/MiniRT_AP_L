@@ -13,7 +13,7 @@ t_ray	new_ray(t_vec a, t_vec b)
 	return (r);
 }
 
-t_ray	start_ray(int i, int j, t_mrt *m)
+t_ray	start_ray(int i, int j, t_mini *m)
 {
 	t_ray 	r;
 	t_vec	res1;
@@ -62,7 +62,7 @@ int	mk_rgb(t_vec c)
 	return (*(int *)(unsigned char [4]){c.z * 255, c.y * 255, c.x * 255, t});
 }
 
-void	start_render(t_mrt *m)
+void	start_render(t_mini *m)
 {
 	char	*dst;
 	int		i;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: LeoMoreno <lmoreno@student.42quebec.com    +#+  +:+       +#+        */
+/*   By: lmoreno <lmoreno@student.42quebec.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 14:19:23 by LeoMoreno         #+#    #+#             */
-/*   Updated: 2021/11/07 13:57:03 by LeoMoreno        ###   ########.fr       */
+/*   Updated: 2022/08/22 12:29:12 by lmoreno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,3 @@ char	*ft_strcpy(char *dst, char *src)
 	*dst = '\0';
 	return (dst);
 }
-
-/*int main(void)
-{
-	char s[] = "--> nyancat <--\n\r";
-	//char s[] = "Hola mi Leo";
-	char d[100];
-
-	ft_strcpy(d, s);
-	printf("%s\n", d);
-}*/
