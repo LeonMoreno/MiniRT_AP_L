@@ -1,6 +1,6 @@
 #include "miniRT.h"
 
-void	start_camera(t_mini *m)
+/*void	start_camera(t_mini *m)
 {
 	double	viewport_h;
 	double	viewport_w;
@@ -19,7 +19,7 @@ void	start_camera(t_mini *m)
 	res_2 = vec_minus(vec_divi(m->camera.verti, 2), new_vec(0, 0, focal_length));
 	m->camera.ll_corner = vec_minus(res_1, res_2);
 
-}
+}*/
 
 void	start_resolution(t_mini *m)
 {

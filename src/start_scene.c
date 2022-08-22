@@ -53,5 +53,5 @@ void	start_scene(int argc, char **argv, t_mini *m)
 	if (fd > 0)
 		start_gnl(fd, m);
 	start_resolution(m);
-	start_camera(m);
+	//start_camera(m);
 }
