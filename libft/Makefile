@@ -74,7 +74,7 @@ $(NAME):	$(OBJ)
 			@echo "$(GREEN)Libft compiled!$(DEF_COLOR)"
 
 $(OBJ_DIR)%.o : $(SRC_DIR)%.c | $(OBJF)
-			@echo "$(YELLOW)Compiling: $< $(DEF_COLOR)"
+####@echo "$(YELLOW)Compiling: $< $(DEF_COLOR)"
 			@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 $(OBJF):

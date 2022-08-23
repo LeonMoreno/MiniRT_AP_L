@@ -26,11 +26,12 @@ OBJF	=	.cache_exists
 all	: $(NAME)
 
 $(NAME):	$(OBJ)
-			make -C $(LIBFT_DIR)
-			$(CC) $(OBJ) $(LIBFT) $(MLX_FLAGS) -o $(NAME)
+			@make -C $(LIBFT_DIR)
+			@$(CC) $(OBJ) $(LIBFT) $(MLX_FLAGS) -o $(NAME)
+			@echo $(NAME) Compiled!
 
 $(OBJ_DIR)%.o : $(SRC_DIR)%.c | $(OBJF)
-				$(CC) $(CFLAGS) -c $< -o $@
+				@$(CC) $(CFLAGS) -c $< -o $@
 
 
 $(OBJF)	:
