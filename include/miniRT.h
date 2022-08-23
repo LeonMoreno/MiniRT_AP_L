@@ -36,7 +36,7 @@ typedef struct s_mini
 	double	aspe_ratio;
 	int		h_win;
 	int		w_win;
-	t_elem	elem;
+	t_elem	ele;
 }	t_mini;
 
 void	mlx_start(t_mini *m);
@@ -47,7 +47,7 @@ void	start_scene(int argc, char **argv, t_mini *m);
 void	ft_msg_err(char *s);
 void	start_resolution(t_mini *m);
 void	start_camera(t_mini *m);
-void	line_parser(char *line);
+void	line_parser(char *line, t_mini *m);
 
 //Utils
 void	ft_free_arr2(char **s);

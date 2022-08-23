@@ -3,12 +3,12 @@
 
 enum 
 {
-	AMB_LIGHT,
-	CAMERA,
-	LIGHT,
-	SPHERE,
-	PLANE,
-	CYLI,
+	AL,
+	CA,
+	LI,
+	SP,
+	PL,
+	CY,
 };
 
 typedef	struct	s_al
