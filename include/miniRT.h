@@ -44,12 +44,17 @@ void	start_render(t_mini *m);
 
 // Start scene && parsing
 void	start_scene(int argc, char **argv, t_mini *m);
-void	ft_msg_err(char *s);
 void	start_resolution(t_mini *m);
 void	start_camera(t_mini *m);
+
+// Parser
 void	line_parser(char *line, t_mini *m);
+int		ft_whitespace(char c);
+char	*get_bool(char *line, double *al_ratio);
+char	*get_int(char *line, unsigned char *r);
 
 //Utils
 void	ft_free_arr2(char **s);
+void	ft_msg_err(char *s);
 
 #endif

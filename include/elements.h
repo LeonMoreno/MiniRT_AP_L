@@ -22,9 +22,8 @@ typedef struct s_camera
 {
 	int		id;
 	t_vec	origi;
-	t_vec	horizo;
-	t_vec	verti;
-	t_color	ll_corner;
+	t_vec				vec_orien;
+	unsigned char		fov;
 }	t_camera;
 
 typedef	struct	s_ligth
