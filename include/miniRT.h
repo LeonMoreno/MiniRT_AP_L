@@ -3,7 +3,7 @@
 
 #include "../libft/include/libft.h"
 #include <math.h>
-#include <mlx.h>
+//#include <mlx.h>
 
 // Libs
 #include "essential.h"
@@ -56,6 +56,7 @@ t_sphere	*add_struc_sphere(char *line);
 
 //Utils
 void	ft_free_arr2(char **s);
+void	ft_free(t_mini *m);
 void	ft_msg_err(char *s);
 void	ft_print_sp(t_mini *m);
 

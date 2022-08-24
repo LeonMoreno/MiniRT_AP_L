@@ -1,6 +1,6 @@
 #include "miniRT.h"
 
-void	ft_print_sp(t_mini *m)
+/*void	ft_print_sp(t_mini *m)
 {
 	t_sphere *tmp;
 
@@ -13,7 +13,7 @@ void	ft_print_sp(t_mini *m)
 		printf("Sphere X = %f\n", tmp->center.z);
 		tmp = tmp->next;
 	}
-}
+}*/
 
 t_sphere	*add_struc_sphere(char *line)
 {

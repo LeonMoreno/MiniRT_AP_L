@@ -28,7 +28,7 @@ all	: $(NAME)
 
 $(NAME):	$(OBJ)
 			@make -C $(LIBFT_DIR)
-			@$(CC) $(OBJ) $(LIBFT) $(MLX_FLAGS) -o $(NAME)
+			@$(CC) $(OBJ) $(LIBFT) -o $(NAME)
 			@echo $(NAME) Compiled!
 
 $(OBJ_DIR)%.o : $(SRC_DIR)%.c | $(OBJF)

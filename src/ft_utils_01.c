@@ -19,3 +19,23 @@ void	ft_free_arr2(char **s)
 	}
 	free(s);
 }
+
+void	ft_free_list(t_sphere *s)
+{
+	t_sphere 	*t;
+	t_sphere	*f;
+
+	t = s;
+	while (t)
+	{
+		f = t;
+		t = t->next;
+		free(f);
+	}
+}
+
+void	ft_free(t_mini *m)
+{
+	ft_free_list(m->ele.head_sp);
+	free(m);
+}

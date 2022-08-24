@@ -4,11 +4,8 @@ void	start_gnl(int fd, t_mini *m)
 {
 	char	*line;
 
-	line = malloc(sizeof(char) * 1);
-	line[0] = '\0';
-	while (line)
+	while ((line = get_next_line(fd)))
 	{
-		line = get_next_line(fd);
 		if (line && line[0] != '\n')
 			line_parser(line, m);
 		if (line)
