@@ -46,6 +46,9 @@ void	start_scene(int argc, char **argv, t_mini *m)
 	int	fd;
 
 	fd = 0;
+	m->ele.head_sp = NULL;
+	m->ele.head_pl = NULL;
+	m->ele.head_cy = NULL;
 	if (valide_argu(argc, argv))
 		fd = ft_open_file(argv[1]);
 	if (fd > 0)

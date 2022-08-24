@@ -1,23 +1,18 @@
 #include "miniRT.h"
 
-t_sphere	init_struc_sphere(char *line)
+void	init_struc_sphere(char *line, t_mini *m)
 {
-	t_sphere	sp;
+	t_sphere	*tmp;
 
-	sp.id = SP;
-	line = line + 2;
-	line = get_doub(line, &sp.center.x);
-	line = get_doub(line, &sp.center.y);
-	line = get_doub(line, &sp.center.z);
-	line = get_doub(line, &sp.r);
-	line = get_int(line, &sp.rgb.r);
-	line = get_int(line, &sp.rgb.g);
-	line = get_int(line, &sp.rgb.b);
-	printf("SPHERE = %d id__%d\n", SP, sp.id);
-	printf("SP_x = %f\n", sp.center.x);
-	printf("SP_x = %f\n", sp.center.y);
-	printf("SP_x = %f\n", sp.center.z);
-	return (sp);
+	if (m->ele.head_sp == NULL)
+		m->ele.head_sp = add_struc_sphere(line);
+	else
+	{
+		tmp = m->ele.head_sp;
+		while (tmp->next)
+			tmp = tmp->next;
+		tmp->next = add_struc_sphere(line);
+	}
 }
 
 t_ligth	init_struc_light(char *line)
@@ -90,5 +85,5 @@ void	line_parser(char *line, t_mini *m)
 	else if (!ft_strncmp(line, "L", 1))
 		m->ele.li = init_struc_light(line);
 	else if (!ft_strncmp(line, "sp", 2))
-		m->ele.sp = init_struc_sphere(line);
+		init_struc_sphere(line, m);
 }

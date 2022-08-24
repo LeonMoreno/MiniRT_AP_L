@@ -23,9 +23,9 @@ typedef	struct	s_elem
 	t_al		al;
 	t_camera	ca;
 	t_ligth		li;
-	t_sphere	sp;
-	t_plane		pl;
-	t_cyli		cy;
+	t_sphere	*head_sp;
+	t_plane		*head_pl;
+	t_cyli		*head_cy;
 }	t_elem;
 
 typedef struct s_mini
@@ -52,9 +52,11 @@ void	line_parser(char *line, t_mini *m);
 int		ft_whitespace(char c);
 char	*get_doub(char *line, double *al_ratio);
 char	*get_int(char *line, unsigned char *r);
+t_sphere	*add_struc_sphere(char *line);
 
 //Utils
 void	ft_free_arr2(char **s);
 void	ft_msg_err(char *s);
+void	ft_print_sp(t_mini *m);
 
 #endif
