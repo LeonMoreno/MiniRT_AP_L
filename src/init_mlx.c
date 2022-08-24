@@ -1,4 +1,4 @@
-/*#include "miniRT.h"
+#include "miniRT.h"
 
 int	ft_close(void)
 {
@@ -22,4 +22,4 @@ void	mlx_start(t_mini *m)
 	new_window(m, "Hola miniRT");
 	m->i.img = mlx_new_image(m->mlx, m->w_win, m->h_win);
 	m->i.addr = mlx_get_data_addr(m->i.img, &m->i.bits_pp, &m->i.ll, &m->i.endian);
-}*/
+}

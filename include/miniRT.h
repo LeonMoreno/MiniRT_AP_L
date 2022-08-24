@@ -3,7 +3,7 @@
 
 #include "../libft/include/libft.h"
 #include <math.h>
-//#include <mlx.h>
+#include <mlx.h>
 
 // Libs
 #include "essential.h"
