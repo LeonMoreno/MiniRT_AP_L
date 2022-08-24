@@ -50,7 +50,7 @@ void	start_camera(t_mini *m);
 // Parser
 void	line_parser(char *line, t_mini *m);
 int		ft_whitespace(char c);
-char	*get_bool(char *line, double *al_ratio);
+char	*get_doub(char *line, double *al_ratio);
 char	*get_int(char *line, unsigned char *r);
 
 //Utils

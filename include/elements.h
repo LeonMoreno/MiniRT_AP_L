@@ -29,8 +29,8 @@ typedef struct s_camera
 typedef	struct	s_ligth
 {
 	int		id;
-	t_vec	light_point;
-	double	light_bri;
+	t_vec	point;
+	double	bri;
 }	t_ligth;
 
 typedef	struct	s_sphere

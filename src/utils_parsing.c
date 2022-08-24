@@ -28,7 +28,7 @@ char	*str_to(char *line, int *res, double *fact)
 	return (*(&line));
 }
 
-char	*get_bool(char *line, double *al_ratio)
+char	*get_doub(char *line, double *al_ratio)
 {
 	int		res;
 	double	fact;
