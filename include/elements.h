@@ -46,7 +46,7 @@ typedef	struct	s_plane
 {
 	int		id;
 	t_vec	coor;
-	t_vec	vec_orientation;
+	t_vec	vec_orien;
 	t_color	rgb;
 	struct s_plane	*next;
 }	t_plane;
