@@ -1,27 +1,28 @@
 #include "miniRT.h"
 
-void	ft_print_sp(t_mini *m)
+t_cyli	*add_struc_cy(char *line)
 {
-	t_plane *tmp;
+	t_cyli *cy;
 
-	tmp = m->ele.head_pl;
-	while (tmp)
-	{
-		printf("Sphere ID = %d\n", tmp->id);
-		printf("Sphere X = %f\n", tmp->coor.x);
-		printf("Sphere X = %f\n", tmp->coor.y);
-		printf("Sphere X = %f\n", tmp->coor.z);
-		printf("Sphere X = %f\n", tmp->vec_orien.x);
-		printf("Sphere X = %f\n", tmp->vec_orien.y);
-		printf("Sphere X = %f\n", tmp->vec_orien.z);
-		printf("Sphere X = %d\n", tmp->rgb.r);
-		printf("Sphere X = %d\n", tmp->rgb.g);
-		printf("Sphere X = %d\n", tmp->rgb.b);
-		tmp = tmp->next;
-	}
+	cy = malloc(sizeof(t_cyli));
+	cy->id = CY;
+	line = line + 2;
+	line = get_doub(line, &cy->coor.x);
+	line = get_doub(line, &cy->coor.y);
+	line = get_doub(line, &cy->coor.z);
+	line = get_doub(line, &cy->vec_orien.x);
+	line = get_doub(line, &cy->vec_orien.y);
+	line = get_doub(line, &cy->vec_orien.z);
+	line = get_doub(line, &cy->diam);
+	line = get_doub(line, &cy->hei);
+	line = get_int(line, &cy->rgb.r);
+	line = get_int(line, &cy->rgb.g);
+	line = get_int(line, &cy->rgb.b);
+	cy->next = NULL;
+	return (cy);
 }
 
-/*void	init_struc_cyli(char *line, t_mini *m)
+void	init_struc_cyli(char *line, t_mini *m)
 {
 	t_cyli	*tmp;
 
@@ -34,7 +35,7 @@ void	ft_print_sp(t_mini *m)
 			tmp = tmp->next;
 		tmp->next = add_struc_cy(line);
 	}
-}*/
+}
 
 t_plane	*add_struc_plane(char *line)
 {

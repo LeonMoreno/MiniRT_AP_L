@@ -55,9 +55,9 @@ typedef	struct	s_cyli
 {
 	int		id;
 	t_vec	coor;
-	t_vec	vec_orientation;
-	double	diameter;
-	double	height;
+	t_vec	vec_orien;
+	double	diam;
+	double	hei;
 	t_color	rgb;
 	struct s_cyli	*next;
 }	t_cyli;

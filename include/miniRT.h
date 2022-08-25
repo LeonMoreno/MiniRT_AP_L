@@ -61,6 +61,8 @@ void	init_struc_cyli(char *line, t_mini *m);
 void	ft_free_arr2(char **s);
 void	ft_free(t_mini *m);
 void	ft_msg_err(char *s);
-void	ft_print_sp(t_mini *m);
+void	ft_print_ele(t_mini *m);
+void	ft_print_pl(t_mini *m);
+void	ft_print_cy(t_mini *m);
 
 #endif

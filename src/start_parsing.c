@@ -70,6 +70,6 @@ void	line_parser(char *line, t_mini *m)
 		init_struc_sphere(line, m);
 	else if (!ft_strncmp(line, "pl", 2))
 		init_struc_plane(line, m);
-//	else if (!ft_strncmp(line, "cy", 2))
-//		init_struc_cyli(line, m);
+	else if (!ft_strncmp(line, "cy", 2))
+		init_struc_cyli(line, m);
 }
