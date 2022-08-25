@@ -4,17 +4,12 @@ void	start_gnl(int fd, t_mini *m)
 {
 	char	*line;
 
-	line = malloc(sizeof(char) * 1);
-	line[0] = '\0';
-	m = NULL;
-	while (line)
+	while ((line = get_next_line(fd)))
 	{
-		line = get_next_line(fd);
 		if (line && line[0] != '\n')
-		{
-			printf("line = %s\n", line);
+			line_parser(line, m);
+		if (line)
 			free(line);
-		}
 	}
 	if (line)
 		free(line);
@@ -48,6 +43,9 @@ void	start_scene(int argc, char **argv, t_mini *m)
 	int	fd;
 
 	fd = 0;
+	m->ele.head_sp = NULL;
+	m->ele.head_pl = NULL;
+	m->ele.head_cy = NULL;
 	if (valide_argu(argc, argv))
 		fd = ft_open_file(argv[1]);
 	if (fd > 0)

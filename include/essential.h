@@ -31,7 +31,7 @@ t_vec	vec_divi(t_vec a, double t);
 
 double	vec_length_sq(t_vec v);
 double    vec_length(t_vec v);
-double    dot_product(t_vec a, t_vec b);
+double    dot(t_vec a, t_vec b);
 
 t_vec    normalize(const t_vec v);
 t_vec vec_cross(const t_vec a, const t_vec b);

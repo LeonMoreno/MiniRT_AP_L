@@ -3,12 +3,12 @@
 
 enum 
 {
-	AMB_LIGHT,
-	CAMERA,
-	LIGHT,
-	SPHERE,
-	PLANE,
-	CYLI,
+	AL,
+	CA,
+	LI,
+	SP,
+	PL,
+	CY,
 };
 
 typedef	struct	s_al
@@ -22,16 +22,15 @@ typedef struct s_camera
 {
 	int		id;
 	t_vec	origi;
-	t_vec	horizo;
-	t_vec	verti;
-	t_color	ll_corner;
+	t_vec				vec_orien;
+	unsigned char		fov;
 }	t_camera;
 
 typedef	struct	s_ligth
 {
 	int		id;
-	t_vec	light_point;
-	double	light_bri;
+	t_vec	point;
+	double	bri;
 }	t_ligth;
 
 typedef	struct	s_sphere
@@ -46,8 +45,9 @@ typedef	struct	s_sphere
 typedef	struct	s_plane
 {
 	int		id;
-	t_vec	coor;
-	t_vec	vec_orientation;
+	t_vec	pos;
+	t_vec	vec_orien;
+	t_vec	n;
 	t_color	rgb;
 	struct s_plane	*next;
 }	t_plane;

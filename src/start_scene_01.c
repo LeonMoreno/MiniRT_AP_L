@@ -26,5 +26,4 @@ void	start_resolution(t_mini *m)
 	m->aspe_ratio = 16.0 / 9.0;
 	m->w_win = 1920;
 	m->h_win = (int) m->w_win / m->aspe_ratio;
-	printf("h = %d\n", m->h_win);
 }

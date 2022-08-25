@@ -1,29 +1,40 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   start_render.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: agrenon <agrenon@42quebec.com>             +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/08/25 11:04:42 by agrenon           #+#    #+#             */
+/*   Updated: 2022/08/25 11:30:47 by agrenon          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "miniRT.h"
 
-
-t_inter	camera_ray(t_scene *scene)
+t_inter	camera_ray(t_mini *m, int i, int j)
 {
 	t_inter	inter;
 	t_ray	cam_ray;
-	t_dir	dir;
+	t_vec	dir;
+//	double	fov;
 
-	fov = 60 * M_PI / 180;
-	dir = new_vec(j - (1080 / 2), i - (1080 / 2), -1 * img->w / (2 * tanf(fov / 2)));
+//	fov = 60 * M_PI / 180;
+	dir = new_vec(j - (1080 / 2), i - (1080 / 2), -1 * m->w_win / (2 * tanf(FOV / 2)));
 	cam_ray.dir = dir;
-	cam_ray
 	cam_ray.pos = new_vec(0, 0, 0);
-	inter = ray_shoot(cam_ray);
+	inter = ray_hit(cam_ray, &m->ele);
 	return (inter);
-
 }
 
-int	color(t_scene *scene, int i, int j)
+int	find_color(t_mini *m, int i, int j)
 {
 	t_inter	inter;
 
-	inter = camera_ray(scene, i, j);
-
-	return ();
+	inter = camera_ray(m, i, j);
+	if (inter.hit)
+		return (0x00FFFF);
+	return (0x000000);
 }
 
 void	start_render(t_mini *m)
@@ -39,7 +50,8 @@ void	start_render(t_mini *m)
 		while (j < m->w_win)
 		{
 			//COLOR HERE;
-			color = color(m->scene, i, j);
+			color = find_color(m, i, j);
+			my_mlx_pixel_put(&m->i, j, i, color);
 			j++;
 		}
 		i++;

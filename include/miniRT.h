@@ -4,10 +4,15 @@
 #include "../libft/include/libft.h"
 #include <math.h>
 #include <mlx.h>
+#include <stdbool.h>
 
 // Libs
 #include "essential.h"
 #include "elements.h"
+
+# define FOV (60 * M_PI / 180)
+# define RAY_T_MIN 0.0001f
+# define RAY_T_MAX 1.0e30f
 
 typedef	struct	s_img
 {
@@ -23,10 +28,18 @@ typedef	struct	s_elem
 	t_al		al;
 	t_camera	ca;
 	t_ligth		li;
-	t_sphere	sp;
-	t_plane		pl;
-	t_cyli		cy;
+	t_sphere	*head_sp;
+	t_plane		*head_pl;
+	t_cyli		*head_cy;
 }	t_elem;
+
+typedef struct	s_inter
+{
+	bool	hit;
+	t_vec	point;
+	t_vec	n;
+	int		id;
+}				t_inter;
 
 typedef struct s_mini
 {
@@ -36,23 +49,38 @@ typedef struct s_mini
 	double	aspe_ratio;
 	int		h_win;
 	int		w_win;
-	t_elem	elem;
+	t_elem	ele;
 }	t_mini;
 
 //MLX
-my_mlx_pixel_put(t_data *data, int x, int y, int color);
+void	my_mlx_pixel_put(t_img *data, int x, int y, int color);
 
 void	mlx_start(t_mini *m);
 void	start_render(t_mini *m);
 
 // Start scene && parsing
 void	start_scene(int argc, char **argv, t_mini *m);
-void	ft_msg_err(char *s);
 void	start_resolution(t_mini *m);
 void	start_camera(t_mini *m);
 
+//Tracer
+t_inter	ray_hit(t_ray ray, t_elem *scene);
+void	hit_p(t_ray ray, t_elem *scene, t_inter *old_inter);
+
+// Parser
+void	line_parser(char *line, t_mini *m);
+int		ft_whitespace(char c);
+char	*get_doub(char *line, double *al_ratio);
+char	*get_int(char *line, unsigned char *r);
+t_sphere	*add_struc_sphere(char *line);
+void	init_struc_plane(char *line, t_mini *m);
+void	init_struc_cyli(char *line, t_mini *m);
+
 //Utils
 void	ft_free_arr2(char **s);
+void	ft_free(t_mini *m);
+void	ft_msg_err(char *s);
+void	ft_print_sp(t_mini *m);
 
 
 #endif
