@@ -40,6 +40,7 @@ t_camera	init_struc_camera(char *line)
 	line = get_doub(line, &ca.vec_orien.x);
 	line = get_doub(line, &ca.vec_orien.y);
 	line = get_doub(line, &ca.vec_orien.z);
+	ca.vec_orien = normalize(ca.vec_orien);
 	line = get_int(line, &ca.fov);
 	return (ca);
 }
@@ -59,7 +60,6 @@ t_al	init_struc_al(char *line)
 
 void	line_parser(char *line, t_mini *m)
 {
-	//printf("line = %s", line);
 	if (!ft_strncmp(line, "A", 1))
 		m->ele.al = init_struc_al(line);
 	else if (!ft_strncmp(line, "C", 1))

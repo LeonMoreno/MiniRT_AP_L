@@ -32,7 +32,7 @@ int	valide_argu(int argc, char **argv)
 	if (argc != 2)
 		ft_msg_err("Bad No ARGUS\n");
 	if (!ft_strrchr(argv[1], '.'))
-		ft_msg_err("Bad file extension\n");
+		ft_msg_err("First arg must be a '*.rt' file\n");
 	res = ft_split(argv[1], '.');
 	if (ft_strncmp(res[1], "rt", 2))
 	{

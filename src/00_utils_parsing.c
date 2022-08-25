@@ -19,10 +19,7 @@ char	*str_to(char *line, int *res, double *fact)
 		else if (*line == ',' || ft_whitespace(*line))
 			break ;
 		else if (!ft_isdigit(*line) && *line != '.' && *line != ',')
-		{
-			printf("*line = %d\n", *line);
 			ft_msg_err("Error in file AQUI\n");
-		}
 		line++;
 	}
 	return (*(&line));
