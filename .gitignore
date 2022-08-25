@@ -33,3 +33,6 @@ libft/libft.a
 # Object files
 *.o
 miniRT
+
+# vscode
+*.vscode/

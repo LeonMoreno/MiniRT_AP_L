@@ -6,7 +6,7 @@
 /*   By: agrenon <agrenon@42quebec.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/25 11:04:42 by agrenon           #+#    #+#             */
-/*   Updated: 2022/08/25 11:30:47 by agrenon          ###   ########.fr       */
+/*   Updated: 2022/08/25 17:31:37 by agrenon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ t_inter	camera_ray(t_mini *m, int i, int j)
 //	double	fov;
 
 //	fov = 60 * M_PI / 180;
-	dir = new_vec(j - (1080 / 2), i - (1080 / 2), -1 * m->w_win / (2 * tanf(FOV / 2)));
-	cam_ray.dir = dir;
+	dir = new_vec(j - (m->w_win / 2), i - (m->h_win / 2), -1 * m->w_win / (2 * tanf(FOV / 2)));
+	cam_ray.dir = normalize(dir);
 	cam_ray.pos = new_vec(0, 0, 0);
 	inter = ray_hit(cam_ray, &m->ele);
 	return (inter);
@@ -33,7 +33,7 @@ int	find_color(t_mini *m, int i, int j)
 
 	inter = camera_ray(m, i, j);
 	if (inter.hit)
-		return (0x00FFFF);
+		return (ft_shading(inter, &m->ele));
 	return (0x000000);
 }
 

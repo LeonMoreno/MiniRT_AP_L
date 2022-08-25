@@ -36,4 +36,7 @@ double    dot(t_vec a, t_vec b);
 t_vec    normalize(const t_vec v);
 t_vec vec_cross(const t_vec a, const t_vec b);
 
+double	min(double num1, double num2);
+double	max(double num1, double num2);
+
 #endif

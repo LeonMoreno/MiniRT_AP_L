@@ -26,12 +26,12 @@ typedef struct s_camera
 	unsigned char		fov;
 }	t_camera;
 
-typedef	struct	s_ligth
+typedef	struct	s_light
 {
 	int		id;
 	t_vec	point;
 	double	bri;
-}	t_ligth;
+}	t_light;
 
 typedef	struct	s_sphere
 {
@@ -45,7 +45,7 @@ typedef	struct	s_sphere
 typedef	struct	s_plane
 {
 	int		id;
-	t_vec	pos;
+	t_vec	coor;
 	t_vec	vec_orien;
 	t_vec	n;
 	t_color	rgb;
@@ -56,9 +56,9 @@ typedef	struct	s_cyli
 {
 	int		id;
 	t_vec	coor;
-	t_vec	vec_orientation;
-	double	diameter;
-	double	height;
+	t_vec	vec_orien;
+	double	diam;
+	double	hei;
 	t_color	rgb;
 	struct s_cyli	*next;
 }	t_cyli;
