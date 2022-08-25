@@ -10,8 +10,8 @@ typedef struct s_vec
 
 typedef struct s_ray
 {
-	t_vec	origi;
-	t_vec	dire;
+	t_vec	pos;
+	t_vec	dir;
 } t_ray;
 
 typedef	struct	s_color
