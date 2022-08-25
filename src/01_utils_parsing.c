@@ -21,6 +21,21 @@ void	ft_print_sp(t_mini *m)
 	}
 }
 
+/*void	init_struc_cyli(char *line, t_mini *m)
+{
+	t_cyli	*tmp;
+
+	if (m->ele.head_cy == NULL)
+		m->ele.head_cy = add_struc_cy(line);
+	else
+	{
+		tmp = m->ele.head_cy;
+		while (tmp->next)
+			tmp = tmp->next;
+		tmp->next = add_struc_cy(line);
+	}
+}*/
+
 t_plane	*add_struc_plane(char *line)
 {
 	t_plane *pl;

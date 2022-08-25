@@ -55,6 +55,7 @@ char	*get_doub(char *line, double *al_ratio);
 char	*get_int(char *line, unsigned char *r);
 t_sphere	*add_struc_sphere(char *line);
 void	init_struc_plane(char *line, t_mini *m);
+void	init_struc_cyli(char *line, t_mini *m);
 
 //Utils
 void	ft_free_arr2(char **s);
