@@ -39,6 +39,9 @@ typedef struct s_mini
 	t_elem	elem;
 }	t_mini;
 
+//MLX
+my_mlx_pixel_put(t_data *data, int x, int y, int color);
+
 void	mlx_start(t_mini *m);
 void	start_render(t_mini *m);
 
@@ -48,8 +51,8 @@ void	ft_msg_err(char *s);
 void	start_resolution(t_mini *m);
 void	start_camera(t_mini *m);
 
-
 //Utils
 void	ft_free_arr2(char **s);
+
 
 #endif
