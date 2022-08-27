@@ -5,7 +5,7 @@ t_vec	vec_sum(t_vec a, t_vec b)
 	return (new_vec(a.x + b.x, a.y + b.y, a.z + b.z));
 }
 
-t_vec	vec_minus(t_vec a, t_vec b)
+t_vec	vec_res(t_vec a, t_vec b)
 {
 	return (new_vec(a.x - b.x, a.y - b.y, a.z - b.z));
 }
