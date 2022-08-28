@@ -1,7 +1,7 @@
 #ifndef ELEMENTS_H
 # define ELEMENTS_H
 
-enum 
+enum
 {
 	AL,
 	CA,
@@ -11,7 +11,7 @@ enum
 	CY,
 };
 
-typedef	struct	s_al
+typedef struct s_al
 {
 	int		id;
 	double	al_ratio;
@@ -20,29 +20,29 @@ typedef	struct	s_al
 
 typedef struct s_camera
 {
-	int		id;
-	t_vec	origi;
-	t_vec				vec_orien;
-	unsigned char		fov;
+	int				id;
+	t_vec			origi;
+	t_vec			vec_orien;
+	unsigned char	fov;
 }	t_camera;
 
-typedef	struct	s_light
+typedef struct s_ligth
 {
 	int		id;
 	t_vec	point;
 	double	bri;
 }	t_light;
 
-typedef	struct	s_sphere
+typedef struct s_sphere
 {
-	int			id;
-	t_vec		center;
-	double		r;
-	t_color		rgb;
-	struct	s_sphere	*next;
+	int				id;
+	t_vec			center;
+	double			r;
+	t_color			rgb;
+	struct s_sphere	*next;
 }	t_sphere;
 
-typedef	struct	s_plane
+typedef struct s_plane
 {
 	int		id;
 	t_vec	coor;
@@ -52,14 +52,14 @@ typedef	struct	s_plane
 	struct s_plane	*next;
 }	t_plane;
 
-typedef	struct	s_cyli
+typedef struct s_cyli
 {
-	int		id;
-	t_vec	coor;
-	t_vec	vec_orien;
-	double	diam;
-	double	hei;
-	t_color	rgb;
+	int				id;
+	t_vec			coor;
+	t_vec			vec_orien;
+	double			diam;
+	double			hei;
+	t_color			rgb;
 	struct s_cyli	*next;
 }	t_cyli;
 

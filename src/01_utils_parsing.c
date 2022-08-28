@@ -13,6 +13,7 @@ t_cyli	*add_struc_cy(char *line)
 	line = get_doub(line, &cy->vec_orien.x);
 	line = get_doub(line, &cy->vec_orien.y);
 	line = get_doub(line, &cy->vec_orien.z);
+	cy->vec_orien = normalize(cy->vec_orien);
 	line = get_doub(line, &cy->diam);
 	line = get_doub(line, &cy->hei);
 	line = get_int(line, &cy->rgb.r);
@@ -50,6 +51,7 @@ t_plane	*add_struc_plane(char *line)
 	line = get_doub(line, &pl->vec_orien.x);
 	line = get_doub(line, &pl->vec_orien.y);
 	line = get_doub(line, &pl->vec_orien.z);
+	pl->vec_orien = normalize(pl->vec_orien);
 	line = get_int(line, &pl->rgb.r);
 	line = get_int(line, &pl->rgb.g);
 	line = get_int(line, &pl->rgb.b);
