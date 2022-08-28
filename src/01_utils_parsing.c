@@ -51,7 +51,7 @@ t_plane	*add_struc_plane(char *line)
 	line = get_doub(line, &pl->vec_orien.x);
 	line = get_doub(line, &pl->vec_orien.y);
 	line = get_doub(line, &pl->vec_orien.z);
-	pl->vec_orien = normalize(pl->vec_orien);
+	//pl->vec_orien = normalize(pl->vec_orien);
 	line = get_int(line, &pl->rgb.r);
 	line = get_int(line, &pl->rgb.g);
 	line = get_int(line, &pl->rgb.b);
