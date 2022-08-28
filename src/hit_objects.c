@@ -83,8 +83,11 @@ void	hit_p(t_ray ray, t_elem *scene, t_inter *old_inter)
 			inter.id = PL;
 			inter.col = plane->rgb; 
 			inter.obj = (void *) plane;
-			if (inter.point.z > old_inter->point.z)
-				*old_inter = inter;
+			if (vec_length(vec_minus(inter.point, ray.pos))
+					< vec_length(vec_minus(old_inter->point, ray.pos)))
+			*old_inter = inter;
+			//if (inter.point.z > old_inter->point.z)
+			//	*old_inter = inter;
 		}
 		plane = plane->next;
 	}

@@ -23,17 +23,18 @@ bool	l_crossed(t_inter inter, t_vec to_light, t_elem *scene)
 	double	len;
 	double	llen;
 	
-	ray.pos = inter.point;
+	ray.pos = vec_sum(inter.point, vec_scale(normalize(to_light), 0.01));
 	ray.dir = to_light;
-	len  = vec_length(ray.dir);
+	len  = vec_length(to_light);
 	ray.dir = normalize(ray.dir);
 	new_inter = ray_hit(ray, scene);
-	llen = vec_length(vec_minus(new_inter.point, ray.pos));
-	if (new_inter.hit && new_inter.id == SP) //&& llen < len)
+	if (new_inter.hit)
 	{
-		if (new_inter.id == SP)
-			printf("len %f llen %f: diff %f\n", len, llen, llen - len);
-		return (true);
+		llen = vec_length(vec_minus(new_inter.point, inter.point));
+	//	if (new_inter.id == SP)
+	//		printf("len %f llen %f: diff %f\n", len, llen, llen - len);
+		if (llen < len)
+			return (true);
 	}
 	return (false);
 }
@@ -54,7 +55,10 @@ int	ft_shading(t_inter inter, t_elem *scene)
 		intensity = 0;
 	else if (intensity > 1)
 	{
-//		reste = (intensity - 1) * (intensity - 1) * 255;
+		//if (intensity > 2)
+		//	printf("intensity %f\n", intensity);
+		if (inter.id == SP)
+		reste = (intensity - 1) * (intensity - 1) * 255;
 		intensity = 1;
 	}
 	trgb[0] = 0;
