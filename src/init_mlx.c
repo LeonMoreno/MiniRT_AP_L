@@ -10,6 +10,10 @@ int	ft_key_hook(int keyhook, t_mini *m)
 	m->ens = new_vec(0, 0, 0);
 	if (keyhook == 53)
 		ft_close();
+	if (keyhook == 12)
+		m->ele.li.bri += -1000;
+	printf("key = %d\n", keyhook);
+	start_render(m);
 	return (0);
 }
 

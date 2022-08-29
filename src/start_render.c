@@ -6,7 +6,7 @@
 /*   By: agrenon <agrenon@42quebec.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/25 11:04:42 by agrenon           #+#    #+#             */
-/*   Updated: 2022/08/25 17:31:37 by agrenon          ###   ########.fr       */
+/*   Updated: 2022/08/29 19:39:21 by lmoreno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,4 +56,5 @@ void	start_render(t_mini *m)
 		}
 		i++;
 	}
+	mlx_put_image_to_window(m->mlx, m->win, m->i.img, 0, 0);
 }
