@@ -21,6 +21,14 @@ typedef struct s_color
 	unsigned char	b;
 }	t_color;
 
+typedef struct	s_matrix
+{
+	double	x[3];
+	double	y[3];
+	double	z[3];
+
+}				t_matrix;
+
 t_vec	new_vec(double x, double y, double z);
 t_vec	vec_sum(t_vec a, t_vec b);
 t_vec	vec_minus(t_vec a, t_vec b);
@@ -35,5 +43,8 @@ t_vec vec_cross(const t_vec a, const t_vec b);
 
 double	min(double num1, double num2);
 double	max(double num1, double num2);
+
+//Maxtrix
+t_vec	transform(t_vec vec);
 
 #endif

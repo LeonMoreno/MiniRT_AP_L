@@ -9,9 +9,8 @@ double	ft_intensity(t_inter inter, t_elem *scene, t_vec to_light, double llen)
 	if (inter.id == SP)
 		intensity = (scene->li.bri * (dot(to_light, inter.n)))/ (llen * llen);
 	if (inter.id == PL)
-	{
 		intensity = scene->li.bri /(llen * llen);
-	}
+	
 	//printf("intensity: %f\n", intensity);
 	return (intensity);
 }
@@ -23,7 +22,7 @@ bool	l_crossed(t_inter inter, t_vec to_light, t_elem *scene)
 	double	len;
 	double	llen;
 	
-	ray.pos = vec_sum(inter.point, vec_scale(normalize(to_light), 0.01));
+	ray.pos = vec_sum(inter.point, vec_scale(normalize(to_light), 0.1));
 	ray.dir = to_light;
 	len  = vec_length(to_light);
 	ray.dir = normalize(ray.dir);
@@ -31,9 +30,7 @@ bool	l_crossed(t_inter inter, t_vec to_light, t_elem *scene)
 	if (new_inter.hit)
 	{
 		llen = vec_length(vec_minus(new_inter.point, inter.point));
-	//	if (new_inter.id == SP)
-	//		printf("len %f llen %f: diff %f\n", len, llen, llen - len);
-		if (llen < len)
+		if (llen <= len)
 			return (true);
 	}
 	return (false);
