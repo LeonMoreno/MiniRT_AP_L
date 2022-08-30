@@ -15,7 +15,8 @@ LIBFT		= $(addprefix $(LIBFT_DIR), $(LIBFT_A))
 #Sources Files
 SRC_FILES =	miniRT init_mlx start_render vector_01 vector_02 start_scene\
 			ft_utils_01 start_scene_01 start_parsing 00_utils_parsing\
-			01_utils_parsing ft_pri_ele ft_pri_ele_2\
+			01_utils_parsing ft_pri_ele ft_pri_ele_2 02_utils_parsing\
+			03_utils_parsing\
 			
 #SRC
 SRC		=	$(addprefix $(SRC_DIR), $(addsuffix .c, $(SRC_FILES)))
