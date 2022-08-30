@@ -37,8 +37,8 @@ void	ft_print_ca(t_mini *m)
 	printf("\tCamera:\n");
 	printf ("%f,%f,%f %f,%f,%f %d\n", m->ele.ca.origi.x,
 		m->ele.ca.origi.y, m->ele.ca.origi.z,
-		m->ele.ca.vec_orien.x, m->ele.ca.vec_orien.x,
-		m->ele.ca.vec_orien.x, m->ele.ca.fov);
+		m->ele.ca.vec_orien.x, m->ele.ca.vec_orien.y,
+		m->ele.ca.vec_orien.z, m->ele.ca.fov);
 }
 
 void	ft_print_al(t_mini *m)

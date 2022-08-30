@@ -6,7 +6,7 @@
 /*   By: agrenon <agrenon@42quebec.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/25 11:04:42 by agrenon           #+#    #+#             */
-/*   Updated: 2022/08/28 15:53:20 by agrenon          ###   ########.fr       */
+/*   Updated: 2022/08/30 13:08:22 by agrenon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ int	find_color(t_mini *m, int i, int j)
 
 	inter = camera_ray(m, i, j);
 	if (inter.hit)
+//		return(0x00FFFF);
 		return (ft_shading(inter, &m->ele));
 	return (0x000000);
 }
@@ -56,4 +57,5 @@ void	start_render(t_mini *m)
 		}
 		i++;
 	}
+	mlx_put_image_to_window(m->mlx, m->win, m->i.img, 0, 0);
 }

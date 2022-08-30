@@ -72,6 +72,10 @@ void	start_render(t_mini *m);
 t_inter	ray_hit(t_ray ray, t_elem *scene);
 void	hit_p(t_ray ray, t_elem *scene, t_inter *old_inter);
 void	hit_sp(t_ray ray, t_elem *scene, t_inter *old_inter);
+void	hit_cy(t_ray ray, t_elem *scene, t_inter *old_inter);
+
+//Ray manipulation
+t_ray	reverse_ray(t_ray ray, t_vec pos);
 
 //Light
 int		ft_shading(t_inter, t_elem *scene);

@@ -9,15 +9,11 @@ int	ft_whitespace(char c)
 
 char	*str_to(char *line, int *res, double *fact)
 {
-	*fact = 1;
-	while (*line && *line != '\n')
+	while (*line && !ft_whitespace(*line) && *line != '.' && *line != ',')
 	{
-		if (*line == '.')
-			*fact = 0.1;
+		*fact = *fact * 10;
 		if (ft_isdigit(*line))
 			*res = (*res * 10) + (*line - 48);
-		else if (*line == ',' || ft_whitespace(*line))
-			break ;
 		else if (!ft_isdigit(*line) && *line != '.' && *line != ',')
 			ft_msg_err("Error in file AQUI\n");
 		line++;
@@ -28,10 +24,11 @@ char	*str_to(char *line, int *res, double *fact)
 char	*get_doub(char *line, double *al_ratio)
 {
 	int		res;
-	double	fact;
 	int		sing;
+	double fact;
 
 	sing = 1;
+	fact = 1;
 	*al_ratio = 0;
 	res = 0;
 	while (ft_whitespace(*line) || *line == '+')
@@ -42,7 +39,19 @@ char	*get_doub(char *line, double *al_ratio)
 		line++;
 	}
 	line = str_to(line, &res, &fact);
-	*al_ratio = (double)res * fact * sing;
+	if (*line == '.')
+	{
+		line++;
+		fact = 1;
+		line = str_to(line, &res, &fact);
+	}
+	else
+	{
+		*al_ratio = ((double)res * sing);
+		line++;
+		return (*(&line));
+	}
+	*al_ratio = ((double)res * sing) / fact;
 	if (*line == ',')
 		line++;
 	return (*(&line));
@@ -51,8 +60,8 @@ char	*get_doub(char *line, double *al_ratio)
 char	*get_int(char *line, unsigned char *r)
 {
 	int		res;
-	double	fact;
 	int		sing;
+	double fact;
 
 	sing = 1;
 	*r = 0;

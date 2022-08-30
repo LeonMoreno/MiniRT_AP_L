@@ -8,6 +8,8 @@ double	ft_intensity(t_inter inter, t_elem *scene, t_vec to_light, double llen)
 	intensity = 0;;
 	if (inter.id == SP)
 		intensity = (scene->li.bri * (dot(to_light, inter.n)))/ (llen * llen);
+	if (inter.id == CY)
+		intensity = (scene->li.bri * (dot(to_light, inter.n)))/ (llen * llen);
 	if (inter.id == PL)
 		intensity = scene->li.bri /(llen * llen);
 	

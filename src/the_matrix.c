@@ -72,7 +72,8 @@ t_vec	transform(t_vec vec)
 	t_matrix	matrix;
 
 	
-	matrix = rotate_x(90);
+	matrix = init_matrix(1);
+	matrix = rotate_x(-90);
 	new_vec.x = vec.x * matrix.x[0] + vec.y * matrix.x[1] + vec.z * matrix.x[2];
 	new_vec.y = vec.x * matrix.y[0] + vec.y * matrix.y[1] + vec.z * matrix.y[2];
 	new_vec.z = vec.x * matrix.z[0] + vec.y * matrix.z[1] + vec.z * matrix.z[2];

@@ -18,6 +18,17 @@ typedef struct s_al
 	t_color	rgb;
 }	t_al;
 
+/*typedef struct s_camera
+{
+	int				id;
+	t_vec			origi;
+	t_vec			h;
+	t_vec			v;
+	t_vec			ll_corner;	
+	t_vec			vec_orien;
+	unsigned char	fov;
+}	t_camera; */
+
 typedef struct s_camera
 {
 	int				id;

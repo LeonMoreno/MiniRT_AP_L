@@ -40,7 +40,7 @@ t_camera	init_struc_camera(char *line)
 	line = get_doub(line, &ca.vec_orien.x);
 	line = get_doub(line, &ca.vec_orien.y);
 	line = get_doub(line, &ca.vec_orien.z);
-	ca.vec_orien = normalize(ca.vec_orien);
+	//ca.vec_orien = normalize(ca.vec_orien);
 	line = get_int(line, &ca.fov);
 	return (ca);
 }
