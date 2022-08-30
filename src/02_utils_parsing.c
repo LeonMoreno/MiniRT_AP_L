@@ -24,7 +24,7 @@ void	check_ca(t_camera ca)
 		ft_msg_err("Error Line C\n");
 }
 
-void	check_li(t_ligth li)
+void	check_li(t_light li)
 {
 
 	if (li.bri < 0.0 || li.bri > 1.0)

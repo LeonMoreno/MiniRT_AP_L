@@ -87,7 +87,7 @@ void		init_struc_cyli(char *line, t_mini *m);
 t_sphere	*add_struc_sphere(char *line);
 void		check_al(t_al al);
 void		check_ca(t_camera ca);
-void		check_li(t_ligth li);
+void		check_li(t_light li);
 void		check_pl(t_plane *pl);
 void		check_cy(t_cyli *c);
 void		check_rgb(int x);
