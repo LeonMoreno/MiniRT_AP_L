@@ -34,10 +34,10 @@ void	check_li(t_ligth li)
 void	check_pl(t_plane *p)
 {
 	if (p->vec_orien.x < -1.0 || p->vec_orien.x > 1.0)
-		ft_msg_err("Error Line C\n");
+		ft_msg_err("Error Line PL\n");
 	if (p->vec_orien.y < -1.0 || p->vec_orien.y > 1.0)
-		ft_msg_err("Error Line C\n");
+		ft_msg_err("Error Line PL\n");
 	if (p->vec_orien.z < -1.0 || p->vec_orien.z > 1.0)
-		ft_msg_err("Error Line C\n");
+		ft_msg_err("Error Line PL\n");
 }
 
