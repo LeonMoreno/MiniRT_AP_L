@@ -1,9 +1,9 @@
 #ifndef MINIRT_H
 # define MINIRT_H
 
-#include "../libft/include/libft.h"
-#include <math.h>
-#include <mlx.h>
+# include "../libft/include/libft.h"
+# include <math.h>
+# include <mlx.h>
 #include <stdbool.h>
 
 // Libs
@@ -52,6 +52,7 @@ typedef struct s_mini
 	double	aspe_ratio;
 	int		h_win;
 	int		w_win;
+	int		control;
 	t_elem	ele;
 	t_vec	ens;
 }	t_mini;
@@ -80,10 +81,16 @@ int		ft_shading(t_inter, t_elem *scene);
 void		line_parser(char *line, t_mini *m);
 int			ft_whitespace(char c);
 char		*get_doub(char *line, double *al_ratio);
-char		*get_int(char *line, unsigned char *r);
+char		*get_int(char *line, unsigned char *r, bool b);
 void		init_struc_plane(char *line, t_mini *m);
 void		init_struc_cyli(char *line, t_mini *m);
 t_sphere	*add_struc_sphere(char *line);
+void		check_al(t_al al);
+void		check_ca(t_camera ca);
+void		check_li(t_ligth li);
+void		check_pl(t_plane *pl);
+void		check_cy(t_cyli *c);
+void		check_rgb(int x);
 
 //Utils
 void	ft_free_arr2(char **s);

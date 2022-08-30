@@ -50,9 +50,12 @@ void	ft_print_al(t_mini *m)
 
 void	ft_print_ele(t_mini *m)
 {
-	ft_print_al(m);
-	ft_print_ca(m);
-	ft_print_li(m);
+	if (m->ele.al.id == AL)
+		ft_print_al(m);
+	if (m->ele.ca.id == CA)
+		ft_print_ca(m);
+	if (m->ele.li.id == LI)
+		ft_print_li(m);
 	ft_print_sp(m);
 	ft_print_pl(m);
 	ft_print_cy(m);
