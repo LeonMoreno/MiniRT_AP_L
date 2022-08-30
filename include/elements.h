@@ -47,6 +47,7 @@ typedef struct s_ligth
 typedef struct s_sphere
 {
 	int				id;
+	int				num;
 	t_vec			center;
 	double			r;
 	t_color			rgb;

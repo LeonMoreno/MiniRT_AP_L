@@ -9,7 +9,7 @@ void	ft_print_sp(t_mini *m)
 	t = m->ele.head_sp;
 	while (t)
 	{
-		printf("\tSphere: No %d\n", i);
+		printf("\tSphere: No %d\n", t->num);
 		printf ("%f,%f,%f %f %d,%d,%d\n", t->center.x, t->center.y, t->center.z,
 			t->r, t->rgb.r, t->rgb.g, t->rgb.b);
 		t = t->next;

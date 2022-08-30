@@ -54,6 +54,9 @@ typedef struct s_mini
 	int		w_win;
 	int		control;
 	t_elem	ele;
+	t_sphere 	*ob;
+	t_sphere 	*e_sp;
+	t_plane 	*e_pl;
 	t_vec	ens;
 }	t_mini;
 
@@ -62,6 +65,7 @@ void	my_mlx_pixel_put(t_img *data, int x, int y, int color);
 int		create_trgb(int t, int r, int g, int b);
 void	mlx_start(t_mini *m);
 void		start_render(t_mini *m);
+void	start_hooks(t_mini *m);
 
 // Start scene && parsing
 void		start_scene(int argc, char **argv, t_mini *m);
@@ -73,6 +77,7 @@ void	start_render(t_mini *m);
 t_inter	ray_hit(t_ray ray, t_elem *scene);
 void	hit_p(t_ray ray, t_elem *scene, t_inter *old_inter);
 void	hit_sp(t_ray ray, t_elem *scene, t_inter *old_inter);
+t_inter	camera_ray(t_mini *m, int i, int j);
 
 //Light
 int		ft_shading(t_inter, t_elem *scene);

@@ -2,16 +2,22 @@
 
 void	init_struc_sphere(char *line, t_mini *m)
 {
+	static int	i = 1;
 	t_sphere	*tmp;
 
 	if (m->ele.head_sp == NULL)
+	{
 		m->ele.head_sp = add_struc_sphere(line);
+		m->ele.head_sp->num = i;
+	}
 	else
 	{
+		i++;
 		tmp = m->ele.head_sp;
 		while (tmp->next)
 			tmp = tmp->next;
 		tmp->next = add_struc_sphere(line);
+		tmp->next->num = i;
 	}
 }
 

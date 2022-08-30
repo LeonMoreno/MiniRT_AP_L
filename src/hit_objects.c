@@ -39,7 +39,7 @@ void	hit_sp(t_ray ray, t_elem *scene, t_inter *old_inter)
 			inter.point = vec_sum(ray.pos, vec_scale(ray.dir, t));
 			inter.n = normalize(vec_minus(inter.point, sphere->center));
 			inter.id = SP;
-			inter.col = sphere->rgb; 
+			inter.col = sphere->rgb;
 			inter.obj = (void *) sphere;
 			if (inter.point.z > old_inter->point.z)
 				*old_inter = inter;
@@ -81,7 +81,7 @@ void	hit_p(t_ray ray, t_elem *scene, t_inter *old_inter)
 			inter.point = vec_sum(ray.pos, vec_scale(ray.dir, t));
 			inter.n = normalize(vec_minus(inter.point, plane->coor));
 			inter.id = PL;
-			inter.col = plane->rgb; 
+			inter.col = plane->rgb;
 			inter.obj = (void *) plane;
 			if (vec_length(vec_minus(inter.point, ray.pos))
 					< vec_length(vec_minus(old_inter->point, ray.pos)))
