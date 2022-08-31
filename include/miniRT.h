@@ -96,6 +96,7 @@ void		check_li(t_light li);
 void		check_pl(t_plane *pl);
 void		check_cy(t_cyli *c);
 void		check_rgb(int x);
+void		check_line_len(char *l, int x, char *s);
 
 //Utils
 void	ft_free_arr2(char **s);

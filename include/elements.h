@@ -3,7 +3,7 @@
 
 enum
 {
-	AL,
+	AL = 1,
 	CA,
 	LI,
 	SP,
