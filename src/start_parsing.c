@@ -31,7 +31,7 @@ t_light	init_struc_light(char *line)
 	line = get_doub(line, &li.point.y);
 	line = get_doub(line, &li.point.z);
 	line = get_doub(line, &li.bri);
-//	check_line_len(line, 2, "Irrelevant data found at Line L\n");
+	check_line_len(line, 2, "Irrelevant data found at Line L\n");
 	check_li(li);
 	return (li);
 }
