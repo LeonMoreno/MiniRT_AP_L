@@ -19,6 +19,7 @@ t_cyli	*add_struc_cy(char *line)
 	line = get_int(line, &cy->rgb.r, true);
 	line = get_int(line, &cy->rgb.g, true);
 	line = get_int(line, &cy->rgb.b, true);
+	check_line_len(line, 2, "Irrelevant data found at Line CY");
 	check_cy(cy);
 	cy->next = NULL;
 	return (cy);
@@ -56,6 +57,7 @@ t_plane	*add_struc_plane(char *line)
 	line = get_int(line, &pl->rgb.r, true);
 	line = get_int(line, &pl->rgb.g, true);
 	line = get_int(line, &pl->rgb.b, true);
+	check_line_len(line, 2, "Irrelevant data found at Line PL");
 	check_pl(pl);
 	pl->next = NULL;
 	return (pl);
@@ -90,6 +92,7 @@ t_sphere	*add_struc_sphere(char *line)
 	line = get_int(line, &sp->rgb.r, true);
 	line = get_int(line, &sp->rgb.g, true);
 	line = get_int(line, &sp->rgb.b, true);
+	check_line_len(line, 2, "Irrelevant data found at Line SP");
 	sp->next = NULL;
 	return (sp);
 }
