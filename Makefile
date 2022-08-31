@@ -15,10 +15,12 @@ LIBFT		= $(addprefix $(LIBFT_DIR), $(LIBFT_A))
 #Sources Files
 SRC_FILES =	miniRT init_mlx start_render vector_01 vector_02 start_scene\
 			ft_utils_01 start_scene_01 start_parsing 00_utils_parsing\
-			01_utils_parsing ray_trace hit_objects hit_objects2 pixel_put\
-			ft_pri_ele ft_pri_ele_2 colours utils_minmax the_matrix translate\
-			the_matrix2
-
+			hit_objects2 utils_minmax the_matrix translate\
+			the_matrix2\
+			ray_trace hit_objects pixel_put colours\
+			01_utils_parsing ft_pri_ele ft_pri_ele_2 02_utils_parsing\
+			03_utils_parsing\
+	
 #SRC
 SRC		=	$(addprefix $(SRC_DIR), $(addsuffix .c, $(SRC_FILES)))
 OBJ		=	$(addprefix $(OBJ_DIR), $(addsuffix .o, $(SRC_FILES)))

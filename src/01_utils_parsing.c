@@ -16,9 +16,11 @@ t_cyli	*add_struc_cy(char *line)
 	cy->vec_orien = normalize(cy->vec_orien);
 	line = get_doub(line, &cy->diam);
 	line = get_doub(line, &cy->hei);
-	line = get_int(line, &cy->rgb.r);
-	line = get_int(line, &cy->rgb.g);
-	line = get_int(line, &cy->rgb.b);
+	line = get_int(line, &cy->rgb.r, true);
+	line = get_int(line, &cy->rgb.g, true);
+	line = get_int(line, &cy->rgb.b, true);
+	check_line_len(line, 2, "Irrelevant data found at Line CY");
+	check_cy(cy);
 	cy->next = NULL;
 	return (cy);
 }
@@ -52,9 +54,11 @@ t_plane	*add_struc_plane(char *line)
 	line = get_doub(line, &pl->vec_orien.y);
 	line = get_doub(line, &pl->vec_orien.z);
 	//pl->vec_orien = normalize(pl->vec_orien);
-	line = get_int(line, &pl->rgb.r);
-	line = get_int(line, &pl->rgb.g);
-	line = get_int(line, &pl->rgb.b);
+	line = get_int(line, &pl->rgb.r, true);
+	line = get_int(line, &pl->rgb.g, true);
+	line = get_int(line, &pl->rgb.b, true);
+	check_line_len(line, 2, "Irrelevant data found at Line PL");
+	check_pl(pl);
 	pl->next = NULL;
 	return (pl);
 }
@@ -85,9 +89,10 @@ t_sphere	*add_struc_sphere(char *line)
 	line = get_doub(line, &sp->center.y);
 	line = get_doub(line, &sp->center.z);
 	line = get_doub(line, &sp->r);
-	line = get_int(line, &sp->rgb.r);
-	line = get_int(line, &sp->rgb.g);
-	line = get_int(line, &sp->rgb.b);
+	line = get_int(line, &sp->rgb.r, true);
+	line = get_int(line, &sp->rgb.g, true);
+	line = get_int(line, &sp->rgb.b, true);
+	check_line_len(line, 2, "Irrelevant data found at Line SP");
 	sp->next = NULL;
 	return (sp);
 }

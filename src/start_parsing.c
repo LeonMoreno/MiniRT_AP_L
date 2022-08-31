@@ -25,6 +25,8 @@ t_light	init_struc_light(char *line)
 	line = get_doub(line, &li.point.y);
 	line = get_doub(line, &li.point.z);
 	line = get_doub(line, &li.bri);
+//	check_line_len(line, 2, "Irrelevant data found at Line L\n");
+	check_li(li);
 	return (li);
 }
 
@@ -41,7 +43,9 @@ t_camera	init_struc_camera(char *line)
 	line = get_doub(line, &ca.vec_orien.y);
 	line = get_doub(line, &ca.vec_orien.z);
 	//ca.vec_orien = normalize(ca.vec_orien);
-	line = get_int(line, &ca.fov);
+	line = get_int(line, &ca.fov, false);
+	check_line_len(line, 2, "Irrelevant data found at Line C\n");
+	check_ca(ca);
 	return (ca);
 }
 
@@ -52,9 +56,11 @@ t_al	init_struc_al(char *line)
 	al.id = AL;
 	line++;
 	line = get_doub(line, &al.al_ratio);
-	line = get_int(line, &al.rgb.r);
-	line = get_int(line, &al.rgb.g);
-	line = get_int(line, &al.rgb.b);
+	line = get_int(line, &al.rgb.r, true);
+	line = get_int(line, &al.rgb.g, true);
+	line = get_int(line, &al.rgb.b, true);
+	check_line_len(line, 2, "Irrelevant date found at Line A\n");
+	check_al(al);
 	return (al);
 }
 

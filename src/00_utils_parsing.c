@@ -9,15 +9,23 @@ int	ft_whitespace(char c)
 
 char	*str_to(char *line, int *res, double *fact)
 {
+	int	ctrl;
+
+	ctrl = 0;
 	while (*line && !ft_whitespace(*line) && *line != '.' && *line != ',')
 	{
 		*fact = *fact * 10;
 		if (ft_isdigit(*line))
+		{
 			*res = (*res * 10) + (*line - 48);
+			ctrl = 1;
+		}
 		else if (!ft_isdigit(*line) && *line != '.' && *line != ',')
-			ft_msg_err("Error in file AQUI\n");
+			ft_msg_err("Error in file\n");
 		line++;
 	}
+	if (!ctrl)
+		ft_msg_err("Un argument is missing\n");
 	return (*(&line));
 }
 
@@ -57,7 +65,7 @@ char	*get_doub(char *line, double *al_ratio)
 	return (*(&line));
 }
 
-char	*get_int(char *line, unsigned char *r)
+char	*get_int(char *line, unsigned char *r, bool b)
 {
 	int		res;
 	int		sing;
@@ -76,6 +84,8 @@ char	*get_int(char *line, unsigned char *r)
 	line = str_to(line, &res, &fact);
 	if (*line == ',')
 		++line;
+	if (b == true)
+		check_rgb(res *sing);
 	*r = res * sing;
 	return (*(&line));
 }
