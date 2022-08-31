@@ -9,12 +9,13 @@ int	ft_key_hook(int keyhook, t_mini *m)
 {
 	if (keyhook == 53)
 		ft_close();
-	if (keyhook == 12)
+	/*if (keyhook == 12)
 		m->ele.li.bri += -1000;
 	if (keyhook == 13)
-		m->ele.li.bri += 1000;
-    event_mouse(m, keyhook);
-	//printf("key = %d\n", keyhook);
+		m->ele.li.bri += 1000;*/
+    event_sp(m, keyhook);
+    event_cy(m, keyhook);
+	printf("key = %d\n", keyhook);
 	return (0);
 }
 
@@ -30,13 +31,20 @@ int	mouse_cli(int b, int x, int y, t_mini *m)
 			m->e_sp = (t_sphere *) cli.obj;
 		else if (m->ob->id == PL)
 			m->e_pl = (t_plane *) cli.obj;
+		else if (m->ob->id == CY)
+		{
+			printf("Voy A SELECC\n");
+			m->e_cy = (t_cyli *) cli.obj;
+		}
 	}
 	//printf("Aqui LLEGO %d x = %d y = %d %d\n", b, x, y, m->w_win);
 	if (m->ob && (b == 1 && m->ob->id == SP))
 		printf("Click sphere %d \n", m->e_sp->num);
 	if (m->ob && (b == 1 && m->ob->id == PL))
 		printf("Click Plane\n");
-    event_mouse(m, b);
+	if (m->ob && (b == 1 && m->ob->id == CY))
+		printf("Click Cylinder\n");
+    event_sp(m, b);
 	return (0);
 }
 

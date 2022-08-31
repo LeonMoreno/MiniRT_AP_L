@@ -6,7 +6,7 @@
 /*   By: agrenon <agrenon@42quebec.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/25 11:04:42 by agrenon           #+#    #+#             */
-/*   Updated: 2022/08/31 14:43:30 by lmoreno          ###   ########.fr       */
+/*   Updated: 2022/08/31 15:44:05 by lmoreno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ int	find_color(t_mini *m, int i, int j)
 
 	inter = camera_ray(m, i, j);
 	if (inter.hit)
+//		return(0x00FFFF);
 		return (ft_shading(inter, &m->ele));
 	return (0x000000);
 }

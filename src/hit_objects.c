@@ -7,7 +7,6 @@ double	sphere_equation(t_ray ray, t_sphere *s, t_vec to_light)
 	double	c;
 	double	delta;
 
-	//to_light = normalize(to_light);
 	b = 2 * dot(ray.dir, to_light);
 	c = vec_length_sq(vec_minus(ray.pos, s->center)) - (s->r * s->r);
 	delta = (b * b) - (4 * c);
@@ -25,26 +24,25 @@ double	sphere_equation(t_ray ray, t_sphere *s, t_vec to_light)
 void	hit_sp(t_ray ray, t_elem *scene, t_inter *old_inter)
 {
 	double		t;
-	t_sphere	*sphere;
+	t_sphere	*s;
 	t_inter		inter;
 
-	sphere = scene->head_sp;
-	while (sphere)
+	s = scene->head_sp;
+	while (s)
 	{
-		t = sphere_equation(ray, sphere, vec_minus(ray.pos, sphere->center));
-		//printf("t: %f\n", t);
+		t = sphere_equation(ray, s, vec_minus(ray.pos, s->center));
 		if (t > 0)
 		{
 			inter.hit = true;
 			inter.point = vec_sum(ray.pos, vec_scale(ray.dir, t));
-			inter.n = normalize(vec_minus(inter.point, sphere->center));
+			inter.n = normalize(vec_minus(inter.point, s->center));
 			inter.id = SP;
-			inter.col = sphere->rgb;
-			inter.obj = (void *) sphere;
+			inter.col = s->rgb; 
+			inter.obj = (void *) s;
 			if (inter.point.z > old_inter->point.z)
 				*old_inter = inter;
 		}
-		sphere = sphere->next;
+		s = s->next;
 	}
 	return ;
 }
@@ -53,13 +51,14 @@ double	plane_equation(t_ray ray, t_plane *plane)
 {
 	double t;
 	double dDotN;
-	t_vec	normalized;
+	t_vec	norm;
 
-	normalized = normalize(plane->vec_orien);
+	norm = normalize(plane->vec_orien);
 	dDotN = dot(ray.dir, plane->vec_orien);
+	//dDotN = dot(ray.dir, norm);
 	if (dDotN == 0)
 		return (0);
-	t = dot(vec_minus(plane->coor, ray.pos), normalized) / dDotN;
+	t = dot(vec_minus(plane->coor, ray.pos), norm) / dDotN;
 	if (t <= RAY_T_MIN)
 		return (0);
 	return (t);
@@ -68,28 +67,28 @@ double	plane_equation(t_ray ray, t_plane *plane)
 void	hit_p(t_ray ray, t_elem *scene, t_inter *old_inter)
 {
 	double		t;
-	t_plane	*plane;
+	t_plane		*p;
 	t_inter		inter;
 
-	plane = scene->head_pl;
-	while (plane)
+	p = scene->head_pl;
+	while (p)
 	{
-		t = plane_equation(ray, plane);
+		t = plane_equation(ray, p);
 		if (t > 0)
 		{
 			inter.hit = true;
 			inter.point = vec_sum(ray.pos, vec_scale(ray.dir, t));
-			inter.n = normalize(vec_minus(inter.point, plane->coor));
+			inter.n = normalize(vec_minus(inter.point, p->coor));
 			inter.id = PL;
-			inter.col = plane->rgb;
-			inter.obj = (void *) plane;
+			inter.col = p->rgb; 
+			inter.obj = (void *) p;
 			if (vec_length(vec_minus(inter.point, ray.pos))
-					< vec_length(vec_minus(old_inter->point, ray.pos)))
+				< vec_length(vec_minus(old_inter->point, ray.pos)))
 			*old_inter = inter;
 			//if (inter.point.z > old_inter->point.z)
 			//	*old_inter = inter;
 		}
-		plane = plane->next;
+		p = p->next;
 	}
 	return ;
 }
