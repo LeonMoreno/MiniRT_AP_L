@@ -4,7 +4,8 @@
 # include "../libft/include/libft.h"
 # include <math.h>
 # include <mlx.h>
-#include <stdbool.h>
+# include <stdbool.h>
+# include <pthread.h>
 
 // Libs
 # include "essential.h"
@@ -57,11 +58,18 @@ typedef struct s_mini
 	t_vec	ens;
 }	t_mini;
 
+typedef struct	s_job
+{
+	int	start;
+	int	end;
+	t_mini	*mini;
+}				t_job;
+
+
 //MLX
 void	my_mlx_pixel_put(t_img *data, int x, int y, int color);
 int		create_trgb(int t, int r, int g, int b);
 void	mlx_start(t_mini *m);
-void		start_render(t_mini *m);
 
 // Start scene && parsing
 void		start_scene(int argc, char **argv, t_mini *m);
@@ -69,7 +77,8 @@ void		start_resolution(t_mini *m);
 void		start_camera(t_mini *m);
 
 //Tracer
-void	start_render(t_mini *m);
+void	thread_it(t_mini *m);
+void	*start_render(void *data);
 t_inter	ray_hit(t_ray ray, t_elem *scene);
 void	hit_p(t_ray ray, t_elem *scene, t_inter *old_inter);
 void	hit_sp(t_ray ray, t_elem *scene, t_inter *old_inter);
