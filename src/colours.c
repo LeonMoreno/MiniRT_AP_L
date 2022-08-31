@@ -56,8 +56,8 @@ int	ft_shading(t_inter inter, t_elem *scene)
 	{
 		//if (intensity > 2)
 		//	printf("intensity %f\n", intensity);
-		if (inter.id == SP)
-		reste = (intensity - 1) * (intensity - 1) * 255;
+	//	if (inter.id == SP)
+	//	reste = (intensity - 1) * (intensity - 1) * 255;
 		intensity = 1;
 	}
 	trgb[0] = 0;

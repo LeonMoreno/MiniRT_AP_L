@@ -20,3 +20,8 @@ t_vec	vec_cross(const t_vec a, const t_vec b)
 	return (new_vec(a.y * b.z - a.z * b.y, a.z
 			* b.x - a.x * b.z, a.x * b.y - a.y * b.x));
 }
+
+t_vec	inverse(t_vec vec)
+{
+	return(new_vec(-vec.x, -vec.y, -vec.z));
+}
