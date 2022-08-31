@@ -17,7 +17,7 @@ SRC_FILES =	miniRT init_mlx start_render vector_01 vector_02 start_scene\
 			ft_utils_01 start_scene_01 start_parsing 00_utils_parsing\
 			ray_trace hit_objects pixel_put utils_minmax colours\
 			01_utils_parsing ft_pri_ele ft_pri_ele_2 02_utils_parsing\
-			03_utils_parsing ft_hooks\
+			03_utils_parsing ft_hooks 00_events\
 	
 #SRC
 SRC		=	$(addprefix $(SRC_DIR), $(addsuffix .c, $(SRC_FILES)))

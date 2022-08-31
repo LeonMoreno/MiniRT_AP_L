@@ -109,4 +109,8 @@ void	ft_print_cy(t_mini *m);
 void	ft_print_pl(t_mini *m);
 void	ft_print_ca(t_mini *m);
 
+
+//Hooks & Events
+void	event_mouse(t_mini *m, int k);
+
 #endif
