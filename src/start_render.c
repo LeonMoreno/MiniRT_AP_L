@@ -6,7 +6,7 @@
 /*   By: agrenon <agrenon@42quebec.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/25 11:04:42 by agrenon           #+#    #+#             */
-/*   Updated: 2022/09/01 16:19:19 by agrenon          ###   ########.fr       */
+/*   Updated: 2022/09/01 16:35:49 by agrenon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,9 @@ int	find_color(t_mini *m, int i, int j)
 
 void	*start_render(void *data)
 {
-	int		i;
-	int		j;
-	int		color;
+	int	i;
+	int	j;
+	int	color;
 	t_job	*jb;
 
 	jb = (t_job *) data;
@@ -87,8 +87,6 @@ void	thread_it(t_mini *m)
 	//GET TIME
 	gettimeofday(&time, NULL);
 	ms1 = time.tv_sec * 1000 + (long int) time.tv_usec / 1000;
-	//LIGHT
-	m->ele.intensity = m->ele.li.bri * 10000;
 
 	//THREAD RENDERING
 	i = 0;

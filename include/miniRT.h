@@ -15,7 +15,7 @@
 # define RAY_T_MIN 0.0001f
 # define RAY_T_MAX 1.0e30f
 # define AMBIENT 0.2
-# define N_THREAD 4
+# define N_THREAD 12
 
 typedef struct s_img
 {
@@ -72,7 +72,6 @@ typedef struct	s_job
 	double	fov;
 	t_mini	*mini;
 }				t_job;
-
 
 //MLX
 void	my_mlx_pixel_put(t_img *data, int x, int y, int color);
