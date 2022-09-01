@@ -9,52 +9,51 @@ int	ft_key_hook(int keyhook, t_mini *m)
 {
 	if (keyhook == 53)
 		ft_close();
-	/*if (keyhook == 12)
-		m->ele.li.bri += -1000;
-	if (keyhook == 13)
-		m->ele.li.bri += 1000;*/
-    event_sp(m, keyhook);
-    event_cy(m, keyhook);
+	event_sp(m, keyhook);
+	event_cy(m, keyhook);
 	event_pl(m, keyhook);
+	event_ca(m, keyhook);
 	printf("key = %d\n", keyhook);
 	return (0);
 }
 
+void	ray_gen(int x, int y, t_mini *m)
+{
+	t_inter	cli;
+
+	cli = camera_ray(m, y, x);
+	m->ob = (t_sphere *) cli.obj;
+	if (m->ob->id == SP)
+	{
+		m->e_sp = (t_sphere *) cli.obj;
+		m->e_pl = NULL;
+		m->e_cy = NULL;
+	}
+	else if (m->ob->id == PL)
+	{
+		m->e_pl = (t_plane *) cli.obj;
+		m->e_sp = NULL;
+		m->e_cy = NULL;
+	}
+	else if (m->ob->id == CY)
+	{
+		m->e_cy = (t_cyli *) cli.obj;
+		m->e_sp = NULL;
+		m->e_pl = NULL;
+	}
+}
+
 int	mouse_cli(int b, int x, int y, t_mini *m)
 {
-	t_inter cli;
-
 	if (b == 1)
-	{
-		cli = camera_ray(m, y, x);
-		m->ob = (t_sphere *) cli.obj;
-		if (m->ob->id == SP)
-		{
-			m->e_sp = (t_sphere *) cli.obj;
-			m->e_pl = NULL;
-			m->e_cy = NULL;
-		}
-		else if (m->ob->id == PL)
-		{
-			m->e_pl = (t_plane *) cli.obj;
-			m->e_sp = NULL;
-			m->e_cy = NULL;
-		}
-		else if (m->ob->id == CY)
-		{
-			m->e_cy = (t_cyli *) cli.obj;
-			m->e_sp = NULL;
-			m->e_pl = NULL;
-		}
-	}
-	//printf("Aqui LLEGO %d x = %d y = %d %d\n", b, x, y, m->w_win);
+		ray_gen(x, y, m);
 	if (m->ob && (b == 1 && m->ob->id == SP))
 		printf("Click sphere %d \n", m->e_sp->num);
 	if (m->ob && (b == 1 && m->ob->id == PL))
 		printf("Click Plane\n");
 	if (m->ob && (b == 1 && m->ob->id == CY))
 		printf("Click Cylinder\n");
-    event_sp(m, b);
+	event_sp(m, b);
 	return (0);
 }
 
