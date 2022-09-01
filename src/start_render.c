@@ -6,7 +6,7 @@
 /*   By: agrenon <agrenon@42quebec.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/25 11:04:42 by agrenon           #+#    #+#             */
-/*   Updated: 2022/09/01 14:17:12 by agrenon          ###   ########.fr       */
+/*   Updated: 2022/09/01 15:15:36 by agrenon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	start_render(t_mini *m)
 
 
 	m->fov = (double) m->ele.ca.fov * M_PI / 180;
-	m->ele.li.bri = m->ele.li.bri * 10000;
+	m->ele.intensity = m->ele.li.bri * 10000;
 	i = 0;
 	while (i < m->h_win)
 	{

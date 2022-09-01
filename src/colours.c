@@ -7,11 +7,11 @@ double	ft_intensity(t_inter inter, t_elem *scene, t_vec to_light, double llen)
 	to_light = normalize(to_light);	
 	intensity = 0;;
 	if (inter.id == SP)
-		intensity = (scene->li.bri * (dot(to_light, inter.n)))/ (llen * llen);
+		intensity = (scene->intensity * (dot(to_light, inter.n)))/ (llen * llen);
 	if (inter.id == CY)
-		intensity = (scene->li.bri * (dot(to_light, inter.n)))/ (llen * llen);
+		intensity = (scene->intensity * (dot(to_light, inter.n)))/ (llen * llen);
 	if (inter.id == PL)
-		intensity = scene->li.bri /(llen * llen);
+		intensity = scene->intensity /(llen * llen);
 	
 	//printf("intensity: %f\n", intensity);
 	return (intensity);
