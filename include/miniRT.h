@@ -6,6 +6,7 @@
 # include <mlx.h>
 # include <stdbool.h>
 # include <pthread.h>
+# include <sys/time.h>
 
 // Libs
 # include "essential.h"
@@ -15,6 +16,7 @@
 # define RAY_T_MIN 0.0001f
 # define RAY_T_MAX 1.0e30f
 # define AMBIENT 0.2
+# define N_THREAD 12
 
 typedef struct s_img
 {
@@ -55,7 +57,11 @@ typedef struct s_mini
 	int		w_win;
 	int		control;
 	t_elem	ele;
-	t_vec	ens;
+	t_sphere 	*ob;
+	t_sphere 	*e_sp;
+	t_plane 	*e_pl;
+	t_cyli		*e_cy;
+	t_vec		ens;
 }	t_mini;
 
 typedef struct	s_job
@@ -82,6 +88,7 @@ void	*start_render(void *data);
 t_inter	ray_hit(t_ray ray, t_elem *scene);
 void	hit_p(t_ray ray, t_elem *scene, t_inter *old_inter);
 void	hit_sp(t_ray ray, t_elem *scene, t_inter *old_inter);
+t_inter	camera_ray(t_mini *m, int i, int j);
 void	hit_cy(t_ray ray, t_elem *scene, t_inter *old_inter);
 
 //Ray manipulation
@@ -116,5 +123,11 @@ void	ft_print_al(t_mini *m);
 void	ft_print_cy(t_mini *m);
 void	ft_print_pl(t_mini *m);
 void	ft_print_ca(t_mini *m);
+
+
+//Hooks & Events
+void	start_hooks(t_mini *m);
+void	event_sp(t_mini *m, int k);
+void	event_cy(t_mini *m, int k);
 
 #endif

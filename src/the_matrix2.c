@@ -17,7 +17,7 @@ t_matrix	mamul(t_matrix m, t_matrix n)
 	return (o);
 }
 
-double	dt(t_matrix m)
+__attribute((always_inline)) inline double	dt(t_matrix m)
 {
 	return (((m.x[0] * m.y[1] * m.z[2]) + (m.x[1] * m.y[2] * m.z[0])
 		+ (m.x[2] * m.y[0] * m.z[2])) - ((m.z[0] * m.y[1] * m.x[2])

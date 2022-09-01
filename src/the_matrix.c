@@ -73,9 +73,7 @@ t_matrix	scale_ma(double scale)
 t_vec	transform(t_vec vec, t_matrix matrix)
 {
 	t_vec		new_vec;
-	//t_matrix	matrix;
 
-	//matrix = mamul(scale_ma(1), mamul(rotate_x(o.x), mamul(rotate_y(o.y), rotate_z(o.z))));
 	new_vec.x = vec.x * matrix.x[0] + vec.y * matrix.x[1] + vec.z * matrix.x[2];
 	new_vec.y = vec.x * matrix.y[0] + vec.y * matrix.y[1] + vec.z * matrix.y[2];
 	new_vec.z = vec.x * matrix.z[0] + vec.y * matrix.z[1] + vec.z * matrix.z[2];

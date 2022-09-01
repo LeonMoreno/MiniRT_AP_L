@@ -6,7 +6,7 @@
 /*   By: agrenon <agrenon@42quebec.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/25 11:04:42 by agrenon           #+#    #+#             */
-/*   Updated: 2022/08/31 17:01:03 by agrenon          ###   ########.fr       */
+/*   Updated: 2022/08/31 18:38:57 by agrenon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ void	*start_render(void *data)
 
 	jb = (t_job *) data;
 	i = jb->start;
-	//printf("Threadi onhoing %d start: %d end: %d\n", i, jb->start, jb->end);
 	while (i < jb->end)
 	{
 		j = 0;
@@ -60,38 +59,51 @@ void	*start_render(void *data)
 		}
 		i++;
 	}
-	//mlx_put_image_to_window(m->mlx, m->win, m->i.img, 0, 0);
 	return (NULL);
+}
+
+t_job	init_job(t_mini *m, int	i)
+{
+	t_job	job;
+	
+	job.start = (i * (m->h_win / N_THREAD));
+	if (!i)
+		job.start = 0;
+	job.end = ((i * (m->h_win / N_THREAD)) + (m->h_win / N_THREAD));
+	if (i == N_THREAD - 1)
+		job.end = m->h_win;
+	job.mini = m;
+	return (job)
 }
 
 void	thread_it(t_mini *m)
 {
 	int			i;
-	pthread_t	thread[16];
-	t_job		job[16];
+	pthread_t	thread[N_THREAD];
+	t_job		job[N_THREAD];
+	long long	ms1;
+	long long	ms2;
+	struct timeval	time;
 
+	//GET TIME
+	gettimeofday(&time, NULL);
+	ms1 = time.tv_sec * 1000 + (long int) time.tv_usec / 1000;
+
+	//THREAD RENDERING
 	i = 0;
-	while (i < 16)
+	while (i < N_THREAD)
 	{
-		job[i].start = (i * (m->h_win / 16));
-		if (!i)
-			job[i].start = 0;
-		job[i].end = ((i * (m->h_win / 16)) + (m->h_win / 16));
-
-		if (i == 15)
-			job[i].end = m->h_win;
-	//	printf("Threadi onhoing %d start: %d end: %d\n", i, job[i].start, job[i]. end);
-		job[i].mini = m;
+		job[i] = init_job(m, i);
 		pthread_create(&thread[i], NULL, start_render, (void *) &job[i]);
 		i++;
 	}
 	i = 0;
-	while (i < 16)
-	{
-		pthread_join(thread[i], NULL);
-		i++;
-	}
+	while (i < N_THREAD)
+		pthread_join(thread[i++], NULL);
 	mlx_put_image_to_window(m->mlx, m->win, m->i.img, 0, 0);
+
+	//PRINT RENDER TIME
+	gettimeofday(&time, NULL);
+	ms2 = time.tv_sec * 1000 + (long int) time.tv_usec / 1000;
+	printf("N_THREAD = %d Render time: %lld\n", N_THREAD, ms2 - ms1);
 }
-
-
