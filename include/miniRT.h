@@ -25,6 +25,7 @@ typedef struct s_img
 
 typedef struct s_elem
 {
+	double		intensity;
 	t_al		al;
 	t_camera	ca;
 	t_light		li;
