@@ -6,7 +6,7 @@
 /*   By: agrenon <agrenon@42quebec.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/25 11:04:42 by agrenon           #+#    #+#             */
-/*   Updated: 2022/09/01 12:15:47 by agrenon          ###   ########.fr       */
+/*   Updated: 2022/09/01 16:19:19 by agrenon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@ t_inter	camera_ray(t_mini *m, int i, int j)
 	t_inter	inter;
 	t_ray	cam_ray;
 	t_vec	dir;
-//	double	fov;
+	double	fov;
 
-//	fov = 60 * M_PI / 180;
-	dir = new_vec(j - (m->w_win / 2), i - (m->h_win / 2), -1 * m->w_win / (2 * tanf(FOV / 2)));
+	fov = 60 * M_PI / 180;
+	dir = new_vec(j - (m->w_win / 2), i - (m->h_win / 2), -1 * m->w_win / (2 * tanf(fov / 2)));
 	cam_ray.dir = normalize(dir);
-	cam_ray.pos = new_vec(0, 0, 0);
+	cam_ray.pos = m->ele.ca.origi;
 	inter = ray_hit(cam_ray, &m->ele);
 	return (inter);
 }
@@ -47,6 +47,7 @@ void	*start_render(void *data)
 
 	jb = (t_job *) data;
 	i = jb->start;
+	i = 0;
 	while (i < jb->end)
 	{
 		j = 0;
@@ -86,11 +87,14 @@ void	thread_it(t_mini *m)
 	//GET TIME
 	gettimeofday(&time, NULL);
 	ms1 = time.tv_sec * 1000 + (long int) time.tv_usec / 1000;
+	//LIGHT
+	m->ele.intensity = m->ele.li.bri * 10000;
 
 	//THREAD RENDERING
 	i = 0;
 	while (i < N_THREAD)
 	{
+		printf("Hallo\n");
 		job[i] = init_job(m, i);
 		pthread_create(&thread[i], NULL, start_render, (void *) &job[i]);
 		i++;
