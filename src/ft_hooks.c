@@ -28,13 +28,22 @@ int	mouse_cli(int b, int x, int y, t_mini *m)
 		cli = camera_ray(m, y, x);
 		m->ob = (t_sphere *) cli.obj;
 		if (m->ob->id == SP)
+		{
 			m->e_sp = (t_sphere *) cli.obj;
+			m->e_pl = NULL;
+			m->e_cy = NULL;
+		}
 		else if (m->ob->id == PL)
+		{
 			m->e_pl = (t_plane *) cli.obj;
+			m->e_sp = NULL;
+			m->e_cy = NULL;
+		}
 		else if (m->ob->id == CY)
 		{
-			printf("Voy A SELECC\n");
 			m->e_cy = (t_cyli *) cli.obj;
+			m->e_sp = NULL;
+			m->e_pl = NULL;
 		}
 	}
 	//printf("Aqui LLEGO %d x = %d y = %d %d\n", b, x, y, m->w_win);
