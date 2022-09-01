@@ -7,11 +7,11 @@ double	ft_intensity(t_inter inter, t_elem *scene, t_vec to_light, double llen)
 	to_light = normalize(to_light);	
 	intensity = 0;;
 	if (inter.id == SP)
-		intensity = (scene->li.bri * (dot(to_light, inter.n)))/ (llen * llen);
+		intensity = (scene->intensity * (dot(to_light, inter.n)))/ (llen * llen);
 	if (inter.id == CY)
-		intensity = (scene->li.bri * (dot(to_light, inter.n)))/ (llen * llen);
+		intensity = (scene->intensity * (dot(to_light, inter.n)))/ (llen * llen);
 	if (inter.id == PL)
-		intensity = scene->li.bri /(llen * llen);
+		intensity = scene->intensity /(llen * llen);
 	
 	//printf("intensity: %f\n", intensity);
 	return (intensity);
@@ -38,6 +38,7 @@ bool	l_crossed(t_inter inter, t_vec to_light, t_elem *scene)
 	return (false);
 }
 
+
 int	ft_shading(t_inter inter, t_elem *scene)
 {
 	unsigned char trgb[4];
@@ -58,11 +59,15 @@ int	ft_shading(t_inter inter, t_elem *scene)
 		//	printf("intensity %f\n", intensity);
 	//	if (inter.id == SP)
 	//	reste = (intensity - 1) * (intensity - 1) * 255;
-		intensity = 1;
+//		intensity = 1;
 	}
+	//printf("intensityL %f color rouge : %d\n", scene->al.al_ratio,(int) scene->al.rgb.r);
 	trgb[0] = 0;
-	trgb[1] = (char) min(255, ((reste + inter.col.r) * (AMBIENT + intensity)));
-	trgb[2] = (char) min(255, ((reste + inter.col.g) * (AMBIENT + intensity)));
-	trgb[3] = (char) min(255, ((reste + inter.col.b) * (AMBIENT + intensity)));
+	trgb[1] = (char) min(255, ((reste + inter.col.r)
+		* ((((scene->al.al_ratio * ((double) scene->al.rgb.r / 255))) + intensity))));
+	trgb[2] = (char) min(255, ((reste + inter.col.g)
+		* ((((scene->al.al_ratio * ((double) scene->al.rgb.g / 255))) + intensity))));
+	trgb[3] = (char) min(255, ((reste + inter.col.b)
+		* ((((scene->al.al_ratio * ((double) scene->al.rgb.b / 255))) + intensity))));
 	return (create_trgb(trgb[0], trgb[1], trgb[2], trgb[3]));
 }

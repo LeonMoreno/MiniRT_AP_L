@@ -10,7 +10,6 @@
 # include "essential.h"
 # include "elements.h"
 
-# define FOV (60 * M_PI / 180)
 # define RAY_T_MIN 0.0001f
 # define RAY_T_MAX 1.0e30f
 # define AMBIENT 0.2
@@ -26,6 +25,7 @@ typedef struct s_img
 
 typedef struct s_elem
 {
+	double		intensity;
 	t_al		al;
 	t_camera	ca;
 	t_light		li;
@@ -52,6 +52,7 @@ typedef struct s_mini
 	double	aspe_ratio;
 	int		h_win;
 	int		w_win;
+	double	fov;
 	int		control;
 	t_elem	ele;
 	t_sphere 	*ob;

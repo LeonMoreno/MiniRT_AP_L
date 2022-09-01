@@ -31,7 +31,7 @@ t_light	init_struc_light(char *line)
 	line = get_doub(line, &li.point.y);
 	line = get_doub(line, &li.point.z);
 	line = get_doub(line, &li.bri);
-//	check_line_len(line, 2, "Irrelevant data found at Line L\n");
+	check_line_len(line, 2, "Irrelevant data found at Line L\n");
 	check_li(li);
 	return (li);
 }
@@ -48,7 +48,7 @@ t_camera	init_struc_camera(char *line)
 	line = get_doub(line, &ca.vec_orien.x);
 	line = get_doub(line, &ca.vec_orien.y);
 	line = get_doub(line, &ca.vec_orien.z);
-	//ca.vec_orien = normalize(ca.vec_orien);
+	ca.vec_orien = normalize(ca.vec_orien);
 	line = get_int(line, &ca.fov, false);
 	check_line_len(line, 2, "Irrelevant data found at Line C\n");
 	check_ca(ca);
@@ -79,7 +79,7 @@ void	line_parser(char *line, t_mini *m)
 	else if (!ft_strncmp(line, "L", 1))
 		m->ele.li = init_struc_light(line);
 	else if (!ft_strncmp(line, "sp", 2))
-		init_struc_sphere(line, m);
+	init_struc_sphere(line, m);
 	else if (!ft_strncmp(line, "pl", 2))
 		init_struc_plane(line, m);
 	else if (!ft_strncmp(line, "cy", 2))
