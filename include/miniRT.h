@@ -118,5 +118,6 @@ void	ft_print_ca(t_mini *m);
 void	start_hooks(t_mini *m);
 void	event_sp(t_mini *m, int k);
 void	event_cy(t_mini *m, int k);
+void	event_pl(t_mini *m, int k);
 
 #endif

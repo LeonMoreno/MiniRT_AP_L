@@ -15,6 +15,7 @@ int	ft_key_hook(int keyhook, t_mini *m)
 		m->ele.li.bri += 1000;*/
     event_sp(m, keyhook);
     event_cy(m, keyhook);
+	event_pl(m, keyhook);
 	printf("key = %d\n", keyhook);
 	return (0);
 }
