@@ -6,7 +6,7 @@
 /*   By: agrenon <agrenon@42quebec.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/25 11:04:42 by agrenon           #+#    #+#             */
-/*   Updated: 2022/08/31 18:38:57 by agrenon          ###   ########.fr       */
+/*   Updated: 2022/09/01 12:15:47 by agrenon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,13 +67,11 @@ t_job	init_job(t_mini *m, int	i)
 	t_job	job;
 	
 	job.start = (i * (m->h_win / N_THREAD));
-	if (!i)
-		job.start = 0;
 	job.end = ((i * (m->h_win / N_THREAD)) + (m->h_win / N_THREAD));
 	if (i == N_THREAD - 1)
 		job.end = m->h_win;
 	job.mini = m;
-	return (job)
+	return (job);
 }
 
 void	thread_it(t_mini *m)
