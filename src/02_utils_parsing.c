@@ -26,9 +26,8 @@ void	check_ca(t_camera ca)
 
 void	check_li(t_light li)
 {
-	(void) li;
-//	if (li.bri < 0.0 || li.bri > 1.0)
-//		ft_msg_err("Error Line L\n");
+	if (li.bri < 0.0 || li.bri > 1.0)
+		ft_msg_err("Error Line L\n");
 }
 
 void	check_pl(t_plane *p)
