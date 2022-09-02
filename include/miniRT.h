@@ -59,7 +59,9 @@ typedef struct s_mini
 	t_sphere 	*e_sp;
 	t_plane 	*e_pl;
 	t_cyli		*e_cy;
-	t_vec		ens;
+	bool	a;
+	bool	c;
+	bool	l;
 }	t_mini;
 
 //MLX
