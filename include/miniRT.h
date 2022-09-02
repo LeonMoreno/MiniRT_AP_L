@@ -54,6 +54,9 @@ typedef struct s_mini
 	int		w_win;
 	int		control;
 	t_elem	ele;
+	bool	a;
+	bool	c;
+	bool	l;
 	t_vec	ens;
 }	t_mini;
 

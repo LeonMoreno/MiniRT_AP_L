@@ -2,7 +2,7 @@
 
 t_cyli	*add_struc_cy(char *line)
 {
-	t_cyli *cy;
+	t_cyli	*cy;
 
 	cy = malloc(sizeof(t_cyli));
 	cy->id = CY;
@@ -19,7 +19,7 @@ t_cyli	*add_struc_cy(char *line)
 	line = get_int(line, &cy->rgb.r, true);
 	line = get_int(line, &cy->rgb.g, true);
 	line = get_int(line, &cy->rgb.b, true);
-	check_line_len(line, 2, "Irrelevant data found at Line CY");
+	check_line_len(line, 0, "Irrelevant data found at Line CY");
 	check_cy(cy);
 	cy->next = NULL;
 	return (cy);
@@ -42,7 +42,7 @@ void	init_struc_cyli(char *line, t_mini *m)
 
 t_plane	*add_struc_plane(char *line)
 {
-	t_plane *pl;
+	t_plane	*pl;
 
 	pl = malloc(sizeof(t_plane));
 	pl->id = PL;
@@ -53,11 +53,10 @@ t_plane	*add_struc_plane(char *line)
 	line = get_doub(line, &pl->vec_orien.x);
 	line = get_doub(line, &pl->vec_orien.y);
 	line = get_doub(line, &pl->vec_orien.z);
-	//pl->vec_orien = normalize(pl->vec_orien);
 	line = get_int(line, &pl->rgb.r, true);
 	line = get_int(line, &pl->rgb.g, true);
 	line = get_int(line, &pl->rgb.b, true);
-	check_line_len(line, 2, "Irrelevant data found at Line PL");
+	check_line_len(line, 0, "Irrelevant data found at Line PL");
 	check_pl(pl);
 	pl->next = NULL;
 	return (pl);
@@ -92,7 +91,7 @@ t_sphere	*add_struc_sphere(char *line)
 	line = get_int(line, &sp->rgb.r, true);
 	line = get_int(line, &sp->rgb.g, true);
 	line = get_int(line, &sp->rgb.b, true);
-	check_line_len(line, 2, "Irrelevant data found at Line SP");
+	check_line_len(line, 0, "Irrelevant data found at Line SP");
 	sp->next = NULL;
 	return (sp);
 }
