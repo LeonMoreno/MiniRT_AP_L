@@ -9,6 +9,8 @@ int	ft_key_hook(int keyhook, t_mini *m)
 {
 	if (keyhook == 53)
 		ft_close();
+	if (keyhook == 35)
+		ft_print_ele(m);
 	event_sp(m, keyhook);
 	event_cy(m, keyhook);
 	event_pl(m, keyhook);

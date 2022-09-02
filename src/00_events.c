@@ -8,7 +8,7 @@ void	event_ca(t_mini *m, int k)
 		m->ele.ca.origi.x -= 5;
 	if (k == 3)
 		m->ele.ca.fov += 5;
-	if (k == 5)
+	if (k == 2)
 		m->ele.ca.fov -= 5;
 	if (k == 45 || k == 46 || k == 3 || k == 5)
 		start_render(m);
