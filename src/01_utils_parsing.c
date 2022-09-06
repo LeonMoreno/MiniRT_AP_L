@@ -13,7 +13,7 @@ t_cyli	*add_struc_cy(char *line)
 	line = get_doub(line, &cy->vec_orien.x);
 	line = get_doub(line, &cy->vec_orien.y);
 	line = get_doub(line, &cy->vec_orien.z);
-	cy->vec_orien = normalize(cy->vec_orien);
+	//cy->vec_orien = normalize(cy->vec_orien);
 	line = get_doub(line, &cy->diam);
 	line = get_doub(line, &cy->hei);
 	line = get_int(line, &cy->rgb.r, true);

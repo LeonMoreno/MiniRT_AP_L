@@ -17,7 +17,6 @@ void	start_gnl(int fd, t_mini *m)
 	line = get_next_line(fd);
 	while (line)
 	{
-		printf("line = %s\n", line);
 		if (line && line[0] != '\n')
 			line_parser(line, m);
 		if (line)
