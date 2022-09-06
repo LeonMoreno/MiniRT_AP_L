@@ -52,5 +52,6 @@ void	ft_free(t_mini *m)
 {
 	ft_free_sp(m->ele.head_sp);
 	ft_free_pl(m->ele.head_pl);
+	ft_free_cy(m->ele.head_cy);
 	free(m);
 }

@@ -108,6 +108,7 @@ void		check_line_len(char *l, int x, char *s);
 //Utils
 void	ft_free_arr2(char **s);
 void	ft_free(t_mini *m);
+void	ft_free_cy(t_cyli *c);
 void	ft_msg_err(char *s);
 void	ft_print_sp(t_mini *m);
 void	ft_print_ele(t_mini *m);

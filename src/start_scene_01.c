@@ -30,15 +30,15 @@ void	start_camera(t_mini *m)
 	viewport_h = 2.0 * h;
 	viewport_w = m->aspe_ratio * viewport_h;
 	make_llcorner(m, viewport_w, viewport_h);
-}*/
+}
 
-/*void	start_camera(t_mini *m)
+void	start_camera(t_mini *m)
 {
 	double	viewport_h;
 	double	viewport_w;
 	double	focal_length;
-//	t_vec	res_1;
-//	t_vec	res_2;
+	t_vec	res_1;
+	t_vec	res_2;
 
 	viewport_h = 2.0;
 	viewport_w = m->aspe_ratio * viewport_h;
@@ -60,4 +60,3 @@ void	start_resolution(t_mini *m)
 	m->w_win = 1920;
 	m->h_win = (int) m->w_win / m->aspe_ratio;
 }
-

@@ -11,7 +11,7 @@ void	ft_print_pl(t_mini *m)
 	{
 		printf("\tPlane: No %d\n", i);
 		printf ("%f,%f,%f %f,%f,%f %d,%d,%d\n", t->coor.x, t->coor.y, t->coor.z,
-			t->vec_orien.x, t->vec_orien.y, t->vec_orien.z, 
+			t->vec_orien.x, t->vec_orien.y, t->vec_orien.z,
 			t->rgb.r, t->rgb.g, t->rgb.b);
 		t = t->next;
 		i++;
@@ -28,7 +28,8 @@ void	ft_print_cy(t_mini *m)
 	while (t)
 	{
 		printf("\tCylinder: No %d\n", i);
-		printf ("%f,%f,%f %f,%f,%f %f %f %d,%d,%d\n", t->coor.x, t->coor.y, t->coor.z,
+		printf ("%f,%f,%f %f,%f,%f %f %f %d,%d,%d\n",
+			t->coor.x, t->coor.y, t->coor.z,
 			t->vec_orien.x, t->vec_orien.y, t->vec_orien.z,
 			t->diam, t->hei,
 			t->rgb.r, t->rgb.g, t->rgb.b);
