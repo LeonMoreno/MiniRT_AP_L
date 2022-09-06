@@ -1,5 +1,15 @@
 #include "miniRT.h"
 
+void	check_line_requi(t_mini *m)
+{
+	if (m->a != true)
+		ft_msg_err("There must be at least one line A\n");
+	if (m->c != true)
+		ft_msg_err("There must be at least one line C\n");
+	if (m->l != true)
+		ft_msg_err("There must be at least one line L\n");
+}
+
 void	start_gnl(int fd, t_mini *m)
 {
 	char	*line;
@@ -51,10 +61,13 @@ void	start_scene(int argc, char **argv, t_mini *m)
 	m->ele.head_sp = NULL;
 	m->ele.head_pl = NULL;
 	m->ele.head_cy = NULL;
+	m->a = false;
+	m->c = false;
+	m->l = false;
 	if (valide_argu(argc, argv))
 		fd = ft_open_file(argv[1]);
 	if (fd > 0)
 		start_gnl(fd, m);
+	check_line_requi(m);
 	start_resolution(m);
-	//start_camera(m);
 }
