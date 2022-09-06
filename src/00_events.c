@@ -6,7 +6,7 @@
 /*   By: lmoreno <lmoreno@student.42quebec.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 14:31:02 by lmoreno           #+#    #+#             */
-/*   Updated: 2022/09/06 15:14:45 by agrenon          ###   ########.fr       */
+/*   Updated: 2022/09/06 16:12:48 by lmoreno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,6 @@ void	event_cy_rot(t_mini *m, int k)
 		m->e_cy->vec_orien.y += 0.3;
 	else if (m->e_cy && m->e_cy->id == CY && k == 9)
 		m->e_cy->vec_orien.y -= 0.3;
-	if (m->e_cy->id == CY)
-		m->e_cy->vec_orien = normalize(m->e_cy->vec_orien);
 }
 
 void	event_cy(t_mini *m, int k)
