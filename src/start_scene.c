@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   start_scene.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lmoreno <lmoreno@student.42quebec.com>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/06 14:33:31 by lmoreno           #+#    #+#             */
+/*   Updated: 2022/09/06 14:33:32 by lmoreno          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "miniRT.h"
 
 void	check_line_requi(t_mini *m)
@@ -14,12 +26,14 @@ void	start_gnl(int fd, t_mini *m)
 {
 	char	*line;
 
-	while ((line = get_next_line(fd)))
+	line = get_next_line(fd);
+	while (line)
 	{
 		if (line && line[0] != '\n')
 			line_parser(line, m);
 		if (line)
 			free(line);
+		line = get_next_line(fd);
 	}
 	if (line)
 		free(line);

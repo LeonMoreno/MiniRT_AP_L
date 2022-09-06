@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   01_utils_parsing.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lmoreno <lmoreno@student.42quebec.com>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/06 14:31:25 by lmoreno           #+#    #+#             */
+/*   Updated: 2022/09/06 14:31:26 by lmoreno          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "miniRT.h"
 
 t_cyli	*add_struc_cy(char *line)
@@ -13,7 +25,6 @@ t_cyli	*add_struc_cy(char *line)
 	line = get_doub(line, &cy->vec_orien.x);
 	line = get_doub(line, &cy->vec_orien.y);
 	line = get_doub(line, &cy->vec_orien.z);
-	cy->vec_orien = normalize(cy->vec_orien);
 	line = get_doub(line, &cy->diam);
 	line = get_doub(line, &cy->hei);
 	line = get_int(line, &cy->rgb.r, true);

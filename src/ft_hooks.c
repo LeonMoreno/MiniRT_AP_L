@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_hooks.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lmoreno <lmoreno@student.42quebec.com>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/06 14:31:36 by lmoreno           #+#    #+#             */
+/*   Updated: 2022/09/06 14:31:37 by lmoreno          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "miniRT.h"
 
 int	ft_close(void)
@@ -15,6 +27,7 @@ int	ft_key_hook(int keyhook, t_mini *m)
 	event_cy(m, keyhook);
 	event_pl(m, keyhook);
 	event_ca(m, keyhook);
+	event_li(m, keyhook);
 	printf("key = %d\n", keyhook);
 	return (0);
 }

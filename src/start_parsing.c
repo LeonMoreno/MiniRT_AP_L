@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   start_parsing.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lmoreno <lmoreno@student.42quebec.com>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/06 14:33:18 by lmoreno           #+#    #+#             */
+/*   Updated: 2022/09/06 14:33:19 by lmoreno          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "miniRT.h"
 
 void	init_struc_sphere(char *line, t_mini *m)
@@ -53,7 +65,6 @@ t_camera	init_struc_camera(char *line, t_mini *m)
 	line = get_doub(line, &ca.vec_orien.x);
 	line = get_doub(line, &ca.vec_orien.y);
 	line = get_doub(line, &ca.vec_orien.z);
-	//ca.vec_orien = normalize(ca.vec_orien);
 	line = get_int(line, &ca.fov, false);
 	check_line_len(line, 0, "Irrelevant data found at Line C\n");
 	check_ca(ca);
@@ -88,7 +99,7 @@ void	line_parser(char *line, t_mini *m)
 	else if (!ft_strncmp(line, "L", 1))
 		m->ele.li = init_struc_light(line, m);
 	else if (!ft_strncmp(line, "sp", 2))
-	init_struc_sphere(line, m);
+		init_struc_sphere(line, m);
 	else if (!ft_strncmp(line, "pl", 2))
 		init_struc_plane(line, m);
 	else if (!ft_strncmp(line, "cy", 2))

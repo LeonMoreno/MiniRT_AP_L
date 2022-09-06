@@ -56,11 +56,11 @@ typedef struct s_sphere
 
 typedef struct s_plane
 {
-	int		id;
-	t_vec	coor;
-	t_vec	vec_orien;
-	t_vec	n;
-	t_color	rgb;
+	int				id;
+	t_vec			coor;
+	t_vec			vec_orien;
+	t_vec			n;
+	t_color			rgb;
 	struct s_plane	*next;
 }	t_plane;
 

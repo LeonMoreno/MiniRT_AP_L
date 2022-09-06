@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_utils_01.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lmoreno <lmoreno@student.42quebec.com>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/06 14:31:47 by lmoreno           #+#    #+#             */
+/*   Updated: 2022/09/06 14:31:48 by lmoreno          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "miniRT.h"
 
 void	ft_msg_err(char *s)
@@ -52,5 +64,6 @@ void	ft_free(t_mini *m)
 {
 	ft_free_sp(m->ele.head_sp);
 	ft_free_pl(m->ele.head_pl);
+	ft_free_cy(m->ele.head_cy);
 	free(m);
 }
