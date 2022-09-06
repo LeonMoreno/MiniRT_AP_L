@@ -55,11 +55,11 @@ int	ft_shading(t_inter inter, t_elem *scene)
 		intensity = 0;
 	else if (intensity > 1)
 	{
-		//if (intensity > 2)
+	//if (intensity > 2)
 		//	printf("intensity %f\n", intensity);
-	//	if (inter.id == SP)
-	//	reste = (intensity - 1) * (intensity - 1) * 255;
-//		intensity = 1;
+	if (inter.id == SP)
+	reste = (intensity - 1) * (intensity - 1) * 255;
+		intensity = 1;
 	}
 	//printf("intensityL %f color rouge : %d\n", scene->al.al_ratio,(int) scene->al.rgb.r);
 	trgb[0] = 0;
