@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   00_events.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lmoreno <lmoreno@student.42quebec.com>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/06 14:31:02 by lmoreno           #+#    #+#             */
+/*   Updated: 2022/09/06 14:31:03 by lmoreno          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "miniRT.h"
 
 void	event_ca(t_mini *m, int k)
@@ -43,7 +55,6 @@ void	event_cy_rot(t_mini *m, int k)
 		m->e_cy->vec_orien.y += 0.5;
 	else if (m->e_cy && m->e_cy->id == CY && k == 9)
 		m->e_cy->vec_orien.y -= 0.5;
-//	m->e_cy->vec_orien = normalize(m->e_cy->vec_orien);
 }
 
 void	event_cy(t_mini *m, int k)

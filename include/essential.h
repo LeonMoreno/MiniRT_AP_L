@@ -21,7 +21,7 @@ typedef struct s_color
 	unsigned char	b;
 }	t_color;
 
-typedef struct	s_matrix
+typedef struct s_matrix
 {
 	double	x[3];
 	double	y[3];
@@ -35,11 +35,11 @@ t_vec	vec_minus(t_vec a, t_vec b);
 t_vec	vec_scale(t_vec a, double t);
 t_vec	vec_divi(t_vec a, double t);
 double	vec_length_sq(t_vec v);
-double    vec_length(t_vec v);
-double    dot(t_vec a, t_vec b);
-t_vec    normalize(const t_vec v);
+double	vec_length(t_vec v);
+double	dot(t_vec a, t_vec b);
+t_vec	normalize(const t_vec v);
 t_vec	inverse(t_vec vec);
-t_vec vec_cross(const t_vec a, const t_vec b);
+t_vec	vec_cross(const t_vec a, const t_vec b);
 //double	dot_product(t_vec a, t_vec b);
 
 double	min(double num1, double num2);
