@@ -59,7 +59,9 @@ typedef struct s_mini
 	t_sphere 	*e_sp;
 	t_plane 	*e_pl;
 	t_cyli		*e_cy;
-	t_vec		ens;
+	bool	a;
+	bool	c;
+	bool	l;
 }	t_mini;
 
 //MLX
@@ -123,5 +125,6 @@ void	start_hooks(t_mini *m);
 void	event_sp(t_mini *m, int k);
 void	event_cy(t_mini *m, int k);
 void	event_pl(t_mini *m, int k);
+void	event_ca(t_mini *m, int k);
 
 #endif

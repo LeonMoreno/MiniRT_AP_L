@@ -29,23 +29,29 @@ char	*str_to(char *line, int *res, double *fact)
 	return (*(&line));
 }
 
-char	*get_doub(char *line, double *al_ratio)
+char	*move_str(char *line, int *sing)
 {
-	int		res;
-	int		sing;
-	double fact;
-
-	sing = 1;
-	fact = 1;
-	*al_ratio = 0;
-	res = 0;
+	*sing = 1;
 	while (ft_whitespace(*line) || *line == '+')
 		line++;
 	if (*line == '-')
 	{
-		sing = -1;
+		*sing = -1;
 		line++;
 	}
+	return (*(&line));
+}
+
+char	*get_doub(char *line, double *al_ratio)
+{
+	int		res;
+	int		sing;
+	double	fact;
+
+	fact = 1;
+	*al_ratio = 0;
+	res = 0;
+	line = move_str(line, &sing);
 	line = str_to(line, &res, &fact);
 	if (*line == '.')
 	{
@@ -69,7 +75,7 @@ char	*get_int(char *line, unsigned char *r, bool b)
 {
 	int		res;
 	int		sing;
-	double fact;
+	double	fact;
 
 	sing = 1;
 	*r = 0;
@@ -85,7 +91,7 @@ char	*get_int(char *line, unsigned char *r, bool b)
 	if (*line == ',')
 		++line;
 	if (b == true)
-		check_rgb(res *sing);
+		check_rgb(res * sing);
 	*r = res * sing;
 	return (*(&line));
 }

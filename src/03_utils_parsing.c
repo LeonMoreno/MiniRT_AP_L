@@ -15,6 +15,9 @@ void	check_line_len(char *l, int x, char *s)
 	int	len;
 
 	len = ft_strlen(l);
+	while (ft_whitespace(*l))
+		l++;
+	len = ft_strlen(l);
 	if (len > x)
 		ft_msg_err(s);
 }
