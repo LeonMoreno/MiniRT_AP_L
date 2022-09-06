@@ -83,6 +83,9 @@ void	hit_sp(t_ray ray, t_elem *scene, t_inter *old_inter);
 t_inter	camera_ray(t_mini *m, int i, int j);
 void	hit_cy(t_ray ray, t_elem *scene, t_inter *old_inter);
 
+//Equations
+double	plane_equation(t_ray ray, t_plane *plane);
+
 //Ray manipulation
 t_ray	reverse_ray(t_ray ray, t_vec pos, t_matrix m);
 

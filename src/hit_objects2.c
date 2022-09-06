@@ -1,6 +1,6 @@
 #include "miniRT.h"
 
-double	cy_equat(t_ray r, t_cyli *cy, t_inter *inter, t_vec o)
+double	cy_equat(t_ray r, t_cyli *cy, t_inter *inter, t_matrix m)
 {
 	double	t1;
 	double	b;
@@ -8,11 +8,7 @@ double	cy_equat(t_ray r, t_cyli *cy, t_inter *inter, t_vec o)
 	double	c;
 	double	numSQRT;
 	t_vec	vec;
-	t_matrix	m;
-	//double	dia;
 
-	m  = mamul(scale_ma(1), mamul(rotate_x(o.x), mamul(rotate_y(o .y), rotate_z(o.z))));
-	r = reverse_ray(r, cy->coor, mainv(m));
 	a = (r.dir.x * r.dir.x) + (r.dir.y * r.dir.y);
 	b = 2 * ((r.pos.x * r.dir.x) + (r.pos.y * r.dir.y));
 	c = (r.pos.x * r.pos.x) + (r.pos.y * r.pos.y) - (cy->diam * cy->diam);
@@ -36,6 +32,45 @@ double	cy_equat(t_ray r, t_cyli *cy, t_inter *inter, t_vec o)
 	return (0);
 }
 
+double	caps_equation(t_cyli *cy, t_ray r, double i)
+{
+	t_plane	plane;
+	double	t;
+
+	plane.coor = new_vec(0, 0, cy->hei * i);
+	plane.vec_orien = new_vec(0, 0, 1);
+	t = plane_equation(r, &plane);
+	if (t && cy->diam > vec_length(vec_minus(vec_sum(r.pos, vec_scale(r.dir, t)), plane.coor)))
+		return (t);
+	return (0);
+}
+
+
+double	cylinder_parts(t_ray r,t_cyli *cy, t_inter *inter, t_vec o)
+{
+	double	t[3];
+	t_matrix	m;
+
+	m  = mamul(scale_ma(1), mamul(rotate_x(o.x),
+			mamul(rotate_y(o .y), rotate_z(o.z))));
+	r = reverse_ray(r, cy->coor, mainv(m));
+	inter->id = SP;
+	t[0] = cy_equat(r, cy, inter, m);
+	t[1] = caps_equation(cy, r, 1);
+	t[2] = caps_equation(cy, r, -1);
+	if (!t[0] && !t[1] && !t[2])
+		return (0);
+	if (t[0] > 0 && (t[0] < t[1] || t[1] <= 0) && (t[0] < t[2] || t[2] <= 0))
+		return (t[0]);
+	inter->id = PL;
+	inter->n = normalize(transform(new_vec(0, 0, cy->hei), m));
+	if (t[1] > 0 && (t[1] < t[2] || t[2] <= 0))
+		return (t[1]);
+	return (t[2]);
+}
+
+
+
 void	hit_cy(t_ray ray, t_elem *scene, t_inter *old_inter)
 {
 	double	t;
@@ -45,19 +80,16 @@ void	hit_cy(t_ray ray, t_elem *scene, t_inter *old_inter)
 	cy = scene->head_cy;
 	while (cy)
 	{
-		t = cy_equat(ray, cy, &inter, cy->vec_orien);
+		t = cylinder_parts(ray, cy, &inter, cy->vec_orien);
 		if (t > 0)
 		{
 			inter.hit = true;
 			inter.point = vec_sum(ray.pos, vec_scale(ray.dir, t));
-			//inter.n = normalize(vec_minus(inter.point, cy->coor));
-			inter.id = SP;
 			inter.col = cy->rgb;
 			inter.obj = (void *) cy;
 			if (vec_length(vec_minus(inter.point, ray.pos))
 				< vec_length(vec_minus(old_inter->point, ray.pos)))
 				*old_inter = inter;
-			//if (inter.point.z > old_inter->point.z)
 		}
 		cy = cy->next;
 	}
