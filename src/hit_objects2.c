@@ -51,8 +51,7 @@ double	cylinder_parts(t_ray r,t_cyli *cy, t_inter *inter, t_vec o)
 	double	t[3];
 	t_matrix	m;
 
-	m  = mamul(scale_ma(1), mamul(rotate_x(o.x),
-			mamul(rotate_y(o .y), rotate_z(o.z))));
+	m  = mamul(rotate_x(o.x),mamul(rotate_y(o.y), mamul(scale_ma(1), rotate_z(o.z))));
 	r = reverse_ray(r, cy->coor, mainv(m));
 	inter->id = SP;
 	t[0] = cy_equat(r, cy, inter, m);

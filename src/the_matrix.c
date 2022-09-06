@@ -5,7 +5,7 @@ t_matrix	rotate_x(double thet)
 {
 	t_matrix	matrix;
 
-//	thet = thet * 90;
+	//thet = thet * 90;
 	matrix.x[0] = 1;
 	matrix.x[1] = 0;
 	matrix.x[2] = 0;
@@ -40,7 +40,7 @@ t_matrix	rotate_z(double thet)
 {
 	t_matrix	matrix;
 
-//	thet = thet * 90;
+	//thet = thet * 90;
 	matrix.x[0] = cosf(thet);
 	matrix.x[1] = (-1) * sinf(thet);
 	matrix.x[2] = 0;
