@@ -6,7 +6,7 @@
 /*   By: lmoreno <lmoreno@student.42quebec.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 14:31:36 by lmoreno           #+#    #+#             */
-/*   Updated: 2022/09/06 15:59:13 by lmoreno          ###   ########.fr       */
+/*   Updated: 2022/09/06 17:42:13 by lmoreno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	ft_key_hook(int keyhook, t_mini *m)
 	return (0);
 }
 
-void	ray_gen(int x, int y, t_mini *m)
+void	ray_gen(int x,  int y, t_mini *m)
 {
 	t_inter	cli;
 
