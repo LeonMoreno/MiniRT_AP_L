@@ -16,7 +16,7 @@ LIBFT		= $(addprefix $(LIBFT_DIR), $(LIBFT_A))
 SRC_FILES =	miniRT init_mlx start_render vector_01 vector_02 start_scene\
 			ft_utils_01 start_scene_01 start_parsing 00_utils_parsing\
 			hit_objects2 utils_minmax the_matrix translate\
-			the_matrix2\
+			the_matrix2 vector_03\
 			ray_trace hit_objects pixel_put colours\
 			01_utils_parsing ft_pri_ele ft_pri_ele_2 02_utils_parsing\
 			03_utils_parsing ft_hooks 00_events ft_utils_02 01_events\

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   hit_objects.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: agrenon <agrenon@42quebec.com>             +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/07 14:06:02 by agrenon           #+#    #+#             */
+/*   Updated: 2022/09/07 14:36:29 by agrenon          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "miniRT.h"
 
 double	sphere_equation(t_ray ray, t_sphere *s, t_vec to_light)
@@ -37,7 +49,7 @@ void	hit_sp(t_ray ray, t_elem *scene, t_inter *old_inter)
 			inter.point = vec_sum(ray.pos, vec_scale(ray.dir, t));
 			inter.n = normalize(vec_minus(inter.point, s->center));
 			inter.id = SP;
-			inter.col = s->rgb; 
+			inter.col = s->rgb;
 			inter.obj = (void *) s;
 			if (inter.point.z > old_inter->point.z)
 				*old_inter = inter;
@@ -49,16 +61,15 @@ void	hit_sp(t_ray ray, t_elem *scene, t_inter *old_inter)
 
 double	plane_equation(t_ray ray, t_plane *plane)
 {
-	double t;
-	double dDotN;
+	double	t;
+	double	ddotn;
 	t_vec	norm;
 
 	norm = normalize(plane->vec_orien);
-	dDotN = dot(ray.dir, plane->vec_orien);
-	//dDotN = dot(ray.dir, norm);
-	if (dDotN == 0)
+	ddotn = dot(ray.dir, plane->vec_orien);
+	if (ddotn == 0)
 		return (0);
-	t = dot(vec_minus(plane->coor, ray.pos), norm) / dDotN;
+	t = dot(vec_minus(plane->coor, ray.pos), norm) / ddotn;
 	if (t <= RAY_T_MIN)
 		return (0);
 	return (t);
@@ -80,13 +91,11 @@ void	hit_p(t_ray ray, t_elem *scene, t_inter *old_inter)
 			inter.point = vec_sum(ray.pos, vec_scale(ray.dir, t));
 			inter.n = normalize(vec_minus(inter.point, p->coor));
 			inter.id = PL;
-			inter.col = p->rgb; 
+			inter.col = p->rgb;
 			inter.obj = (void *) p;
 			if (vec_length(vec_minus(inter.point, ray.pos))
 				< vec_length(vec_minus(old_inter->point, ray.pos)))
 			*old_inter = inter;
-			//if (inter.point.z > old_inter->point.z)
-			//	*old_inter = inter;
 		}
 		p = p->next;
 	}

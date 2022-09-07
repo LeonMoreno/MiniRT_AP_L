@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   vector_02.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: agrenon <agrenon@42quebec.com>             +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/07 14:03:42 by agrenon           #+#    #+#             */
+/*   Updated: 2022/09/07 14:04:04 by agrenon          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "miniRT.h"
 
 t_vec	vec_sum(t_vec a, t_vec b)
@@ -23,5 +35,5 @@ t_vec	vec_cross(const t_vec a, const t_vec b)
 
 t_vec	inverse(t_vec vec)
 {
-	return(new_vec(-vec.x, -vec.y, -vec.z));
+	return (new_vec(-vec.x, -vec.y, -vec.z));
 }

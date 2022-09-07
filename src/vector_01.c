@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   vector_01.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: agrenon <agrenon@42quebec.com>             +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/07 13:40:22 by agrenon           #+#    #+#             */
+/*   Updated: 2022/09/07 13:58:59 by agrenon          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "miniRT.h" 
 
 t_vec	new_vec(double x, double y, double z)
 {
-	t_vec v;
+	t_vec	v;
 
 	v.x = x;
 	v.y = y;
@@ -10,12 +22,12 @@ t_vec	new_vec(double x, double y, double z)
 	return (v);
 }
 
-t_vec	vec_scale(t_vec a, double t)
+inline t_vec	vec_scale(t_vec a, double t)
 {
 	return (new_vec(a.x * t, a.y * t, a.z * t));
 }
 
-t_vec	vec_divi(t_vec a, double t)
+inline t_vec	vec_divi(t_vec a, double t)
 {
 	return (new_vec(a.x / t, a.y / t, a.z / t));
 }
@@ -28,9 +40,4 @@ t_vec	normalize(const t_vec v)
 double	vec_length_sq(t_vec v)
 {
 	return (v.x * v.x + v.y * v.y + v.z * v.z);
-}
-
-double	vec_length(t_vec v)
-{
-	return (sqrt(vec_length_sq(v)));
 }
