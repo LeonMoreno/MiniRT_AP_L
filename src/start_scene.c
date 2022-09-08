@@ -6,7 +6,7 @@
 /*   By: lmoreno <lmoreno@student.42quebec.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 14:33:31 by lmoreno           #+#    #+#             */
-/*   Updated: 2022/09/06 14:33:32 by lmoreno          ###   ########.fr       */
+/*   Updated: 2022/09/08 13:26:32 by lmoreno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,16 @@
 void	check_line_requi(t_mini *m)
 {
 	if (m->a != true)
-		ft_msg_err("There must be at least one line A\n");
+		m->ele.al = init_struc_al("A 0.1 255,255,255", m);
 	if (m->c != true)
-		ft_msg_err("There must be at least one line C\n");
+		m->ele.ca = init_struc_camera("C 0,0,90 0,0,0 70", m);
 	if (m->l != true)
-		ft_msg_err("There must be at least one line L\n");
+		m->ele.li = init_struc_light("L -25,-27,95 0.8", m);
+	// if (m->pl != true)
+	// {
+	// 	init_struc_plane("pl -50,0,0 		1,0,0	    	0,0,0", m);
+	// 	init_struc_plane("pl 50,0,0 		1,0,0	    	0,0,0", m);
+	// }
 }
 
 void	start_gnl(int fd, t_mini *m)
@@ -78,6 +83,8 @@ void	start_scene(int argc, char **argv, t_mini *m)
 	m->a = false;
 	m->c = false;
 	m->l = false;
+	m->pl = false;
+	m->ob = NULL;
 	if (valide_argu(argc, argv))
 		fd = ft_open_file(argv[1]);
 	if (fd > 0)

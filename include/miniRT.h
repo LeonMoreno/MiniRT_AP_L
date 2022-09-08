@@ -6,7 +6,7 @@
 /*   By: lmoreno <lmoreno@student.42quebec.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 10:47:18 by lmoreno           #+#    #+#             */
-/*   Updated: 2022/09/08 10:47:19 by lmoreno          ###   ########.fr       */
+/*   Updated: 2022/09/08 12:48:33 by lmoreno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ typedef struct s_mini
 	bool		a;
 	bool		c;
 	bool		l;
+	bool		pl;
 }	t_mini;
 
 //MLX
@@ -112,6 +113,9 @@ char		*get_int(char *line, unsigned char *r, bool b);
 void		init_struc_plane(char *line, t_mini *m);
 void		init_struc_cyli(char *line, t_mini *m);
 t_sphere	*add_struc_sphere(char *line);
+t_al		init_struc_al(char *line, t_mini *m);
+t_camera	init_struc_camera(char *line, t_mini *m);
+t_light		init_struc_light(char *line, t_mini *m);
 void		check_al(t_al al);
 void		check_ca(t_camera ca);
 void		check_li(t_light li);

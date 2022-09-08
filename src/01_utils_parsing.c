@@ -6,7 +6,7 @@
 /*   By: lmoreno <lmoreno@student.42quebec.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 14:31:25 by lmoreno           #+#    #+#             */
-/*   Updated: 2022/09/06 14:31:26 by lmoreno          ###   ########.fr       */
+/*   Updated: 2022/09/08 12:48:59 by lmoreno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,7 @@ void	init_struc_plane(char *line, t_mini *m)
 			tmp = tmp->next;
 		tmp->next = add_struc_plane(line);
 	}
+	m->pl = true;
 }
 
 t_sphere	*add_struc_sphere(char *line)
