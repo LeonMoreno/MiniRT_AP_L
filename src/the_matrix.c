@@ -6,7 +6,7 @@
 /*   By: agrenon <agrenon@42quebec.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 13:36:17 by agrenon           #+#    #+#             */
-/*   Updated: 2022/09/07 13:37:32 by agrenon          ###   ########.fr       */
+/*   Updated: 2022/09/08 12:40:02 by agrenon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ t_matrix	rotate_x(double thet)
 {
 	t_matrix	matrix;
 
+	thet = M_PI / 2 * thet;
 	matrix.x[0] = 1;
 	matrix.x[1] = 0;
 	matrix.x[2] = 0;
@@ -32,6 +33,7 @@ t_matrix	rotate_y(double thet)
 {
 	t_matrix	matrix;
 
+	thet = M_PI / 2 * thet;
 	matrix.x[0] = cosf(thet);
 	matrix.x[1] = 0;
 	matrix.x[2] = sinf(thet);
@@ -48,6 +50,7 @@ t_matrix	rotate_z(double thet)
 {
 	t_matrix	matrix;
 
+	thet = M_PI / 2 * thet;
 	matrix.x[0] = cosf(thet);
 	matrix.x[1] = (-1) * sinf(thet);
 	matrix.x[2] = 0;
