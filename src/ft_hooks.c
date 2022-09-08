@@ -6,7 +6,7 @@
 /*   By: lmoreno <lmoreno@student.42quebec.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 14:31:36 by lmoreno           #+#    #+#             */
-/*   Updated: 2022/09/08 13:50:34 by lmoreno          ###   ########.fr       */
+/*   Updated: 2022/09/08 13:54:41 by lmoreno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,13 +40,10 @@ void	ray_gen(int x, int y, t_mini *m)
 {
 	t_inter	cli;
 
-	(void) x;
-	(void) y;
-
 	m->ob = NULL;
 	cli = camera_ray(m, y, x);
 	if (cli.hit)
-	 	m->ob = (t_sphere *) cli.obj;
+		m->ob = (t_sphere *) cli.obj;
 	if (m->ob && m->ob->id == SP)
 	{
 		m->e_sp = (t_sphere *) cli.obj;
