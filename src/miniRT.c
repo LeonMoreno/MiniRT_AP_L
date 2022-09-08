@@ -3,22 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   miniRT.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agrenon <agrenon@42quebec.com>             +#+  +:+       +#+        */
+/*   By: lmoreno <lmoreno@student.42quebec.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 15:37:08 by agrenon           #+#    #+#             */
-/*   Updated: 2022/09/07 15:37:14 by agrenon          ###   ########.fr       */
+/*   Updated: 2022/09/08 10:58:01 by lmoreno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "miniRT.h"
-
+/**
+ * @brief
+ * ft_print_ele(m);
+ */
 int	main(int argc, char **argv)
 {
 	t_mini	*m;
 
 	m = malloc(sizeof(t_mini));
 	start_scene(argc, argv, m);
-	ft_print_ele(m);
 	mlx_start(m);
 	start_render(m);
 	mlx_loop(m->mlx);

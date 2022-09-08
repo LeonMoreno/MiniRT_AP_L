@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   elements.h                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lmoreno <lmoreno@student.42quebec.com>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/08 10:47:21 by lmoreno           #+#    #+#             */
+/*   Updated: 2022/09/08 10:47:22 by lmoreno          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef ELEMENTS_H
 # define ELEMENTS_H
 
@@ -24,7 +36,7 @@ typedef struct s_al
 	t_vec			origi;
 	t_vec			h;
 	t_vec			v;
-	t_vec			ll_corner;	
+	t_vec			ll_corner;
 	t_vec			vec_orien;
 	unsigned char	fov;
 }	t_camera; */
