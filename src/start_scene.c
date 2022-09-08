@@ -6,7 +6,7 @@
 /*   By: lmoreno <lmoreno@student.42quebec.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 14:33:31 by lmoreno           #+#    #+#             */
-/*   Updated: 2022/09/08 13:26:32 by lmoreno          ###   ########.fr       */
+/*   Updated: 2022/09/08 13:50:30 by lmoreno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,6 @@ void	check_line_requi(t_mini *m)
 		m->ele.ca = init_struc_camera("C 0,0,90 0,0,0 70", m);
 	if (m->l != true)
 		m->ele.li = init_struc_light("L -25,-27,95 0.8", m);
-	// if (m->pl != true)
-	// {
-	// 	init_struc_plane("pl -50,0,0 		1,0,0	    	0,0,0", m);
-	// 	init_struc_plane("pl 50,0,0 		1,0,0	    	0,0,0", m);
-	// }
 }
 
 void	start_gnl(int fd, t_mini *m)
@@ -84,7 +79,6 @@ void	start_scene(int argc, char **argv, t_mini *m)
 	m->c = false;
 	m->l = false;
 	m->pl = false;
-	m->ob = NULL;
 	if (valide_argu(argc, argv))
 		fd = ft_open_file(argv[1]);
 	if (fd > 0)

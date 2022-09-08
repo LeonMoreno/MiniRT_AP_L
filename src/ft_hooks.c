@@ -6,7 +6,7 @@
 /*   By: lmoreno <lmoreno@student.42quebec.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 14:31:36 by lmoreno           #+#    #+#             */
-/*   Updated: 2022/09/08 13:25:51 by lmoreno          ###   ########.fr       */
+/*   Updated: 2022/09/08 13:54:41 by lmoreno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,10 @@ void	ray_gen(int x, int y, t_mini *m)
 {
 	t_inter	cli;
 
-	(void) x;
-	(void) y;
-
+	m->ob = NULL;
 	cli = camera_ray(m, y, x);
-	 if (cli.hit)
-	 	m->ob = (t_sphere *) cli.obj;
+	if (cli.hit)
+		m->ob = (t_sphere *) cli.obj;
 	if (m->ob && m->ob->id == SP)
 	{
 		m->e_sp = (t_sphere *) cli.obj;
@@ -70,12 +68,12 @@ int	mouse_cli(int b, int x, int y, t_mini *m)
 {
 	if (b == 1)
 		ray_gen(x, y, m);
-	// if (m->ob && (b == 1 && m->ob->id == SP))
-	// 	printf("Click sphere %d \n", m->e_sp->num);
-	// if (m->ob && (b == 1 && m->ob->id == PL))
-	// 	printf("Click Plane\n");
-	// if (m->ob && (b == 1 && m->ob->id == CY))
-	// 	printf("Click Cylinder\n");
+	if (m->ob && (b == 1 && m->ob->id == SP))
+		printf("Click sphere %d \n", m->e_sp->num);
+	if (m->ob && (b == 1 && m->ob->id == PL))
+		printf("Click Plane\n");
+	if (m->ob && (b == 1 && m->ob->id == CY))
+		printf("Click Cylinder\n");
 	event_sp(m, b);
 	return (0);
 }
