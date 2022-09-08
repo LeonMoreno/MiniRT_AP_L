@@ -6,7 +6,7 @@
 /*   By: agrenon <agrenon@42quebec.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 14:37:10 by agrenon           #+#    #+#             */
-/*   Updated: 2022/09/08 13:32:50 by agrenon          ###   ########.fr       */
+/*   Updated: 2022/09/08 15:26:11 by agrenon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,16 +35,20 @@ double	cy_equat(t_ray r, t_cyli *cy, t_inter *inter, t_matrix m)
 
 	t1 = cy_ty(r, cy, 1);
 	vec = vec_sum(r.pos, vec_scale(r.dir, t1));
-	vec = vec_minus(vec, new_vec(0, 0, vec.z));
-	inter->n = normalize(transform(vec, m));
 	if (fabs(vec.z) <= cy->hei)
+	{
+		vec = vec_minus(vec, new_vec(0, 0, vec.z));
+		inter->n = normalize(transform(vec, m));
 		return (t1);
+	}
 	t1 = cy_ty(r, cy, -1);
 	vec = vec_sum(r.pos, vec_scale(r.dir, t1));
-	vec = vec_minus(vec, new_vec(0, 0, vec.z));
-	inter->n = normalize(transform(vec, m));
 	if (fabs(vec.z) <= cy->hei)
+	{
+		vec = vec_minus(vec, new_vec(0, 0, vec.z));
+		inter->n = normalize(transform(vec, m));
 		return (t1);
+	}
 	return (0);
 }
 
