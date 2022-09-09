@@ -6,7 +6,7 @@
 /*   By: lmoreno <lmoreno@student.42quebec.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 14:33:31 by lmoreno           #+#    #+#             */
-/*   Updated: 2022/09/08 13:50:30 by lmoreno          ###   ########.fr       */
+/*   Updated: 2022/09/09 10:41:46 by lmoreno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,14 @@
 
 void	check_line_requi(t_mini *m)
 {
+	if (m->n_lin < 1)
+		ft_msg_err("There must be at least one valid parameter\n");
 	if (m->a != true)
-		m->ele.al = init_struc_al("A 0.1 255,255,255", m);
+		m->ele.al = init_struc_al("A 0 0,0,0", m);
 	if (m->c != true)
-		m->ele.ca = init_struc_camera("C 0,0,90 0,0,0 70", m);
+		m->ele.ca = init_struc_camera("C 0,0,0 0,0,0 0", m);
 	if (m->l != true)
-		m->ele.li = init_struc_light("L -25,-27,95 0.8", m);
+		m->ele.li = init_struc_light("L 0,0,0 0.8", m);
 }
 
 void	start_gnl(int fd, t_mini *m)
@@ -78,7 +80,7 @@ void	start_scene(int argc, char **argv, t_mini *m)
 	m->a = false;
 	m->c = false;
 	m->l = false;
-	m->pl = false;
+	m->n_lin = 0;
 	if (valide_argu(argc, argv))
 		fd = ft_open_file(argv[1]);
 	if (fd > 0)

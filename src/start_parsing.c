@@ -6,7 +6,7 @@
 /*   By: lmoreno <lmoreno@student.42quebec.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 14:33:18 by lmoreno           #+#    #+#             */
-/*   Updated: 2022/09/06 14:33:19 by lmoreno          ###   ########.fr       */
+/*   Updated: 2022/09/09 10:31:17 by lmoreno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ void	init_struc_sphere(char *line, t_mini *m)
 		tmp->next = add_struc_sphere(line);
 		tmp->next->num = i;
 	}
+	m->n_lin++;
 }
 
 t_light	init_struc_light(char *line, t_mini *m)
@@ -47,6 +48,7 @@ t_light	init_struc_light(char *line, t_mini *m)
 	line = get_doub(line, &li.bri);
 	check_line_len(line, 0, "Irrelevant data found at Line L\n");
 	check_li(li);
+	m->n_lin++;
 	m->l = true;
 	return (li);
 }
@@ -68,6 +70,7 @@ t_camera	init_struc_camera(char *line, t_mini *m)
 	line = get_int(line, &ca.fov, false);
 	check_line_len(line, 0, "Irrelevant data found at Line C\n");
 	check_ca(ca);
+	m->n_lin++;
 	m->c = true;
 	return (ca);
 }
@@ -87,6 +90,7 @@ t_al	init_struc_al(char *line, t_mini *m)
 	check_line_len(line, 0, "Irrelevant date found at Line A\n");
 	check_al(al);
 	m->a = true;
+	m->n_lin++;
 	return (al);
 }
 

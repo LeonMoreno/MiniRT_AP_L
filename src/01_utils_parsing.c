@@ -6,7 +6,7 @@
 /*   By: lmoreno <lmoreno@student.42quebec.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 14:31:25 by lmoreno           #+#    #+#             */
-/*   Updated: 2022/09/08 12:48:59 by lmoreno          ###   ########.fr       */
+/*   Updated: 2022/09/09 10:41:32 by lmoreno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ void	init_struc_cyli(char *line, t_mini *m)
 			tmp = tmp->next;
 		tmp->next = add_struc_cy(line);
 	}
+	m->n_lin++;
 }
 
 t_plane	*add_struc_plane(char *line)
@@ -86,7 +87,7 @@ void	init_struc_plane(char *line, t_mini *m)
 			tmp = tmp->next;
 		tmp->next = add_struc_plane(line);
 	}
-	m->pl = true;
+	m->n_lin++;
 }
 
 t_sphere	*add_struc_sphere(char *line)

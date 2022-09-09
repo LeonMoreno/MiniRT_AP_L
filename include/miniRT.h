@@ -6,7 +6,7 @@
 /*   By: lmoreno <lmoreno@student.42quebec.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 10:47:18 by lmoreno           #+#    #+#             */
-/*   Updated: 2022/09/08 12:48:33 by lmoreno          ###   ########.fr       */
+/*   Updated: 2022/09/09 10:42:24 by lmoreno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ typedef struct s_mini
 	bool		a;
 	bool		c;
 	bool		l;
-	bool		pl;
+	int			n_lin;
 }	t_mini;
 
 //MLX
