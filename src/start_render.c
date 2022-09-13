@@ -6,7 +6,7 @@
 /*   By: agrenon <agrenon@42quebec.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/25 11:04:42 by agrenon           #+#    #+#             */
-/*   Updated: 2022/09/08 15:07:52 by agrenon          ###   ########.fr       */
+/*   Updated: 2022/09/13 17:19:13 by agrenon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,12 @@ t_inter	camera_ray(t_mini *m, int i, int j)
 	t_inter		inter;
 	t_ray		cam_ray;
 	t_vec		dir;
-	t_matrix	ma;
 
-	ma = mamul(rotate_x(m->ele.ca.vec_orien.x), mamul(rotate_y(m->ele.ca.vec_orien.y), mamul(scale_ma(1), rotate_z(m->ele.ca.vec_orien.z))));
 	dir = new_vec(j - (m->w_win / 2), i - (m->h_win / 2),
 			-1 * m->w_win / (2 * tanf(m->fov / 2)));
 	cam_ray.dir = normalize(dir);
 	cam_ray.pos = m->ele.ca.origi;
-	cam_ray = reverse_ray(cam_ray, new_vec(0, 0, 0), mainv(ma));
+	cam_ray = reverse_ray(cam_ray, new_vec(0, 0, 0), m->ele.ca.vec_orien);
 	inter = ray_hit(cam_ray, &m->ele);
 	return (inter);
 }

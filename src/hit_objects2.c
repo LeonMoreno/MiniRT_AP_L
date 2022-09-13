@@ -6,7 +6,7 @@
 /*   By: agrenon <agrenon@42quebec.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 14:37:10 by agrenon           #+#    #+#             */
-/*   Updated: 2022/09/08 15:26:11 by agrenon          ###   ########.fr       */
+/*   Updated: 2022/09/13 17:11:42 by agrenon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ double	cy_ty(t_ray r, t_cyli *cy, int one)
 	return ((-b + num) / (2 * a));
 }
 
-double	cy_equat(t_ray r, t_cyli *cy, t_inter *inter, t_matrix m)
+double	cy_equat(t_ray r, t_cyli *cy, t_inter *inter, t_vec o)
 {
 	double	t1;
 	t_vec	vec;
@@ -38,7 +38,8 @@ double	cy_equat(t_ray r, t_cyli *cy, t_inter *inter, t_matrix m)
 	if (fabs(vec.z) <= cy->hei)
 	{
 		vec = vec_minus(vec, new_vec(0, 0, vec.z));
-		inter->n = normalize(transform(vec, m));
+		inter->n = normalize(transform
+				(transform(vec, rotate_y(o.y)), rotate_x(o.x)));
 		return (t1);
 	}
 	t1 = cy_ty(r, cy, -1);
@@ -46,7 +47,8 @@ double	cy_equat(t_ray r, t_cyli *cy, t_inter *inter, t_matrix m)
 	if (fabs(vec.z) <= cy->hei)
 	{
 		vec = vec_minus(vec, new_vec(0, 0, vec.z));
-		inter->n = normalize(transform(vec, m));
+		inter->n = normalize(transform
+				(transform(vec, rotate_y(o.y)), rotate_x(o.x)));
 		return (t1);
 	}
 	return (0);
@@ -69,13 +71,10 @@ double	caps_equation(t_cyli *cy, t_ray r, double i)
 double	cylinder_parts(t_ray r, t_cyli *cy, t_inter *inter, t_vec o)
 {
 	double		t[3];
-	t_matrix	m;
 
-	m = mamul(rotate_x(o.x), mamul(rotate_y(o.y),
-				mamul(scale_ma(1), rotate_z(o.z))));
-	r = reverse_ray(r, cy->coor, mainv(m));
+	r = reverse_ray(r, cy->coor, o);
 	inter->id = SP;
-	t[0] = cy_equat(r, cy, inter, m);
+	t[0] = cy_equat(r, cy, inter, o);
 	t[1] = caps_equation(cy, r, 1);
 	t[2] = caps_equation(cy, r, -1);
 	if (!t[0] && !t[1] && !t[2])
@@ -83,7 +82,8 @@ double	cylinder_parts(t_ray r, t_cyli *cy, t_inter *inter, t_vec o)
 	if (t[0] > 0 && (t[0] < t[1] || t[1] <= 0) && (t[0] < t[2] || t[2] <= 0))
 		return (t[0]);
 	inter->id = PL;
-	inter->n = normalize(transform(new_vec(0, 0, cy->hei), m));
+	inter->n = normalize(transform
+			(transform(new_vec(0, 0, cy->hei), rotate_y(o.y)), rotate_x(o.x)));
 	if (t[1] > 0 && (t[1] < t[2] || t[2] <= 0))
 		return (t[1]);
 	return (t[2]);

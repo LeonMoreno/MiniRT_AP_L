@@ -6,7 +6,7 @@
 /*   By: lmoreno <lmoreno@student.42quebec.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 10:47:07 by lmoreno           #+#    #+#             */
-/*   Updated: 2022/09/08 10:47:08 by lmoreno          ###   ########.fr       */
+/*   Updated: 2022/09/13 16:08:25 by agrenon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ double		max(double num1, double num2);
 
 //Maxtrix
 t_vec		transform(t_vec vec, t_matrix m);
+t_vec		transform_r(t_vec vec, t_matrix ma);
 t_matrix	mamul(t_matrix m, t_matrix n);
 t_matrix	scale_ma(double scale);
 t_matrix	rotate_x(double thet);

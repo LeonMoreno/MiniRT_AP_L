@@ -6,7 +6,7 @@
 /*   By: lmoreno <lmoreno@student.42quebec.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 10:47:18 by lmoreno           #+#    #+#             */
-/*   Updated: 2022/09/09 10:42:24 by lmoreno          ###   ########.fr       */
+/*   Updated: 2022/09/13 15:44:01 by agrenon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,7 @@ void		hit_cy(t_ray ray, t_elem *scene, t_inter *old_inter);
 double		plane_equation(t_ray ray, t_plane *plane);
 
 //Ray manipulation
-t_ray		reverse_ray(t_ray ray, t_vec pos, t_matrix m);
+t_ray		reverse_ray(t_ray ray, t_vec pos, t_vec o);
 
 //Light
 int			ft_shading(t_inter, t_elem *scene);
