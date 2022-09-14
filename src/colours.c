@@ -6,7 +6,7 @@
 /*   By: agrenon <agrenon@42quebec.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 15:08:41 by agrenon           #+#    #+#             */
-/*   Updated: 2022/09/07 15:36:28 by agrenon          ###   ########.fr       */
+/*   Updated: 2022/09/14 17:12:00 by agrenon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,11 +69,7 @@ int	ft_shading(t_inter inter, t_elem *scene)
 	if (intensity < 0)
 		intensity = 0;
 	else if (intensity > 1)
-	{
-		if (inter.id == SP)
-		reste = (intensity - 1) * (intensity - 1) * 255;
 		intensity = 1;
-	}
 	trgb[0] = 0;
 	trgb[1] = mixe(reste + inter.col.r, scene->al.rgb.r, scene, intensity);
 	trgb[2] = mixe(reste + inter.col.g, scene->al.rgb.g, scene, intensity);
