@@ -2,7 +2,7 @@
 NAME	= miniRT
 SRC_DIR	= src/
 OBJ_DIR	= obj/
-CFLAGS	=  -g -Werror -Wall -Wextra -I include/
+CFLAGS	=  -g -o3 -Werror -Wall -Wextra -I include/
 MLX_FLAGS	= -lmlx -framework OpenGL -framework AppKit
 CC		= gcc
 RM		= rm -f
