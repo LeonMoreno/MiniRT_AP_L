@@ -6,7 +6,7 @@
 /*   By: lmoreno <lmoreno@student.42quebec.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 14:31:36 by lmoreno           #+#    #+#             */
-/*   Updated: 2022/09/14 16:30:39 by lmoreno          ###   ########.fr       */
+/*   Updated: 2022/09/14 16:38:48 by lmoreno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ int	ft_key_hook(int keyhook, t_mini *m)
 	event_pl(m, keyhook);
 	event_ca(m, keyhook);
 	event_li(m, keyhook);
-	printf("key = %d\n", keyhook);
 	return (0);
 }
 
