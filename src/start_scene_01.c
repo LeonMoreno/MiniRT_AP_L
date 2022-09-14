@@ -6,7 +6,7 @@
 /*   By: lmoreno <lmoreno@student.42quebec.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 14:33:28 by lmoreno           #+#    #+#             */
-/*   Updated: 2022/09/08 12:01:31 by agrenon          ###   ########.fr       */
+/*   Updated: 2022/09/14 12:10:40 by lmoreno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,6 @@
 void	start_resolution(t_mini *m)
 {
 	m->aspe_ratio = 16.0 / 9.0;
-	m->w_win = 1800;
+	m->w_win = 1920;
 	m->h_win = (int) m->w_win / m->aspe_ratio;
 }
