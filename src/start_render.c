@@ -6,7 +6,7 @@
 /*   By: agrenon <agrenon@42quebec.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/25 11:04:42 by agrenon           #+#    #+#             */
-/*   Updated: 2022/09/14 13:26:09 by agrenon          ###   ########.fr       */
+/*   Updated: 2022/09/14 15:45:35 by agrenon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ t_inter	camera_ray(t_mini *m, int i, int j)
 			-1 * m->w_win / (2 * tanf(m->fov / 2)));
 	cam_ray.dir = normalize(dir);
 	cam_ray.pos = m->ele.ca.origi;
-	cam_ray.dir = apply_matrices(dir, m->ele.ca.vec_orien);
+	cam_ray.dir = apply_matrices(cam_ray.dir, m->ele.ca.vec_orien);
 	inter = ray_hit(cam_ray, &m->ele);
 	return (inter);
 }
