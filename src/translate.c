@@ -6,7 +6,7 @@
 /*   By: agrenon <agrenon@42quebec.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 13:39:04 by agrenon           #+#    #+#             */
-/*   Updated: 2022/09/13 17:17:49 by agrenon          ###   ########.fr       */
+/*   Updated: 2022/09/14 12:14:07 by agrenon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,23 @@ t_vec	transform_r(t_vec vec, t_matrix ma)
 	return (new_vec);
 }
 
+t_vec	apply_matrices(t_vec vec, t_vec o)
+{
+	return (transform(transform(transform(vec, rotate_z(o.z))
+				, rotate_y(o.y)), rotate_x(o.x)));
+}
+
+t_vec	apply_matrices_r(t_vec vec, t_vec o)
+{
+	return (transform_r(transform_r(transform_r(vec, rotate_x(o.x))
+				, rotate_y(o.y)), rotate_z(o.z)));
+}
+
 t_ray	reverse_ray(t_ray ray, t_vec pos, t_vec o)
 {
 	t_ray	new_ray;
 
-	new_ray.pos = transform_r(transform_r
-			(vec_minus(ray.pos, pos), rotate_x(o.x)), rotate_y(o.y));
-	new_ray.dir = transform_r
-		(transform_r(ray.dir, rotate_x(o.x)), rotate_y(o.y));
+	new_ray.pos = apply_matrices_r(vec_minus(ray.pos, pos), o);
+	new_ray.dir = apply_matrices_r(ray.dir, o);
 	return (new_ray);
 }

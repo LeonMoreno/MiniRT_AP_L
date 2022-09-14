@@ -6,7 +6,7 @@
 /*   By: agrenon <agrenon@42quebec.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 14:37:10 by agrenon           #+#    #+#             */
-/*   Updated: 2022/09/13 17:11:42 by agrenon          ###   ########.fr       */
+/*   Updated: 2022/09/14 12:12:59 by agrenon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,7 @@ double	cy_equat(t_ray r, t_cyli *cy, t_inter *inter, t_vec o)
 	if (fabs(vec.z) <= cy->hei)
 	{
 		vec = vec_minus(vec, new_vec(0, 0, vec.z));
-		inter->n = normalize(transform
-				(transform(vec, rotate_y(o.y)), rotate_x(o.x)));
+		inter->n = normalize(apply_matrices(vec, o));
 		return (t1);
 	}
 	t1 = cy_ty(r, cy, -1);
@@ -47,8 +46,7 @@ double	cy_equat(t_ray r, t_cyli *cy, t_inter *inter, t_vec o)
 	if (fabs(vec.z) <= cy->hei)
 	{
 		vec = vec_minus(vec, new_vec(0, 0, vec.z));
-		inter->n = normalize(transform
-				(transform(vec, rotate_y(o.y)), rotate_x(o.x)));
+		inter->n = normalize(apply_matrices(vec, o));
 		return (t1);
 	}
 	return (0);
@@ -82,8 +80,7 @@ double	cylinder_parts(t_ray r, t_cyli *cy, t_inter *inter, t_vec o)
 	if (t[0] > 0 && (t[0] < t[1] || t[1] <= 0) && (t[0] < t[2] || t[2] <= 0))
 		return (t[0]);
 	inter->id = PL;
-	inter->n = normalize(transform
-			(transform(new_vec(0, 0, cy->hei), rotate_y(o.y)), rotate_x(o.x)));
+	inter->n = normalize(apply_matrices(new_vec(0, 0, cy->hei), o));
 	if (t[1] > 0 && (t[1] < t[2] || t[2] <= 0))
 		return (t[1]);
 	return (t[2]);
