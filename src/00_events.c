@@ -6,7 +6,7 @@
 /*   By: lmoreno <lmoreno@student.42quebec.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 14:31:02 by lmoreno           #+#    #+#             */
-/*   Updated: 2022/09/14 16:03:29 by lmoreno          ###   ########.fr       */
+/*   Updated: 2022/09/14 16:23:42 by lmoreno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	event_ca(t_mini *m, int k)
 	if (k == 37)
 		m->ele.ca.vec_orien.x -= 1;
 	if (k == 45 || k == 46 || k == 3 || k == 2
-			|| k == 40 || k == 37)
+		|| k == 40 || k == 37)
 		start_render(m);
 }
 
