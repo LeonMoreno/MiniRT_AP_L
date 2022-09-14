@@ -6,7 +6,7 @@
 /*   By: lmoreno <lmoreno@student.42quebec.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 14:31:02 by lmoreno           #+#    #+#             */
-/*   Updated: 2022/09/06 16:12:48 by lmoreno          ###   ########.fr       */
+/*   Updated: 2022/09/14 13:23:45 by agrenon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,13 +48,13 @@ void	event_sp(t_mini *m, int k)
 void	event_cy_rot(t_mini *m, int k)
 {
 	if (m->e_cy && m->e_cy->id == CY && k == 6)
-		m->e_cy->vec_orien.x += 0.3;
+		m->e_cy->vec_orien.x += 0.1;
 	else if (m->e_cy && m->e_cy->id == CY && k == 7)
-		m->e_cy->vec_orien.x -= 0.3;
+		m->e_cy->vec_orien.x -= 0.1;
 	if (m->e_cy && m->e_cy->id == CY && k == 8)
-		m->e_cy->vec_orien.y += 0.3;
+		m->e_cy->vec_orien.y += 0.1;
 	else if (m->e_cy && m->e_cy->id == CY && k == 9)
-		m->e_cy->vec_orien.y -= 0.3;
+		m->e_cy->vec_orien.y -= 0.1;
 }
 
 void	event_cy(t_mini *m, int k)
