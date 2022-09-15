@@ -6,7 +6,7 @@
 /*   By: lmoreno <lmoreno@student.42quebec.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 14:31:36 by lmoreno           #+#    #+#             */
-/*   Updated: 2022/09/14 16:38:48 by lmoreno          ###   ########.fr       */
+/*   Updated: 2022/09/15 15:13:42 by lmoreno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ int	ft_key_hook(int keyhook, t_mini *m)
 	event_pl(m, keyhook);
 	event_ca(m, keyhook);
 	event_li(m, keyhook);
+  	printf("key = %d\n", keyhook);
 	return (0);
 }
 
@@ -82,6 +83,7 @@ void	start_hooks(t_mini *m)
 {
 	m->e_sp = NULL;
 	m->e_pl = NULL;
+	m->e_cy = NULL;
 	mlx_hook(m->win, 17, 0, ft_close, 0);
 	mlx_key_hook(m->win, ft_key_hook, m);
 	mlx_mouse_hook(m->win, mouse_cli, m);
